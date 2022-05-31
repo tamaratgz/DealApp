@@ -11,3 +11,37 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "pages/home";
+@import "components/banner";
+@import "components/buttons";
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Urbanist:wght@200;400;700&display=swap');
+
+h1{
+  font-family: 'Abril Fatface', cursive;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 150%;
+  /* or 75px */
+
+  background: radial-gradient(50% 50% at 50% 50%, #000A63 0%, #860060 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.link{
+  position: absolute;
+  width: 98px;
+  height: 27px;
+  left: 154px;
+  top: 785px;
+
+  font-family: 'Urbanist';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 150%;
+  /* or 22px */
+  color: #860060;
+}
