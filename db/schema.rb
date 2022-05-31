@@ -10,10 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_30_153459) do
+ActiveRecord::Schema.define(version: 2022_05_31_084504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.string "title"
+    t.bigint "poll_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["poll_id"], name: "index_answers_on_poll_id"
+  end
+
+  create_table "polls", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.date "deadline"
+    t.bigint "user_id", null: false
+    t.bigint "project_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_polls_on_project_id"
+    t.index ["user_id"], name: "index_polls_on_user_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_projects_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,4 +57,20 @@ ActiveRecord::Schema.define(version: 2022_05_30_153459) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.string "name"
+    t.bigint "answer_id", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["answer_id"], name: "index_votes_on_answer_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
+  end
+
+  add_foreign_key "answers", "polls"
+  add_foreign_key "polls", "projects"
+  add_foreign_key "polls", "users"
+  add_foreign_key "projects", "users"
+  add_foreign_key "votes", "answers"
+  add_foreign_key "votes", "users"
 end
