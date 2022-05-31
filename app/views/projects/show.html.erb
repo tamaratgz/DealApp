@@ -6,14 +6,17 @@
     <li>
       <div>
         <h3><%= poll.title %></h3>
-        <p><%= poll.description %></p>
-        <p><%= poll.deadline %></p>
+        <p><strong>Description:</strong> <%= poll.description %></p>
+        <p><strong>Deadline:</strong> <%= poll.deadline %></p>
         <ul>
           <% poll.answers.each do |answer| %>
-            <li><%= answer.title %> - <%= answer.votes.count %></li>
+            <li><%= answer.title %> - <%= answer.votes.count %> votes</li>
           <% end %>
         </ul>
       </div>
     </li>
   <% end %>
 </ul>
+
+<%= link_to "Create new poll", new_poll_path%>
+<%= link_to "Edit this project", edit_project_path %>
