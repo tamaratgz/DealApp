@@ -1,0 +1,12 @@
+<h1>All polls without project</h1>
+<h3>Until now only all polls // Feature will follow real soon!</h3>
+
+<ul>
+  <% @polls.each do |poll| %>
+    <li>
+      <h3><%= poll.title %></h3>
+      <p><%= poll.description %></p>
+      <p><%= poll.deadline %></p>
+    </li>
+  <% end %>
+</ul>
