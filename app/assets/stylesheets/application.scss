@@ -14,9 +14,10 @@
 @import "pages/home";
 @import "components/banner";
 @import "components/buttons";
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Urbanist:wght@200;400;700&display=swap');
+@import "shared/flashes";
 
-h1{
+
+h1 {
   font-family: 'Abril Fatface', cursive;
   font-style: normal;
   font-weight: 400;
@@ -30,8 +31,7 @@ h1{
   background-clip: text;
 }
 
-.link{
-  position: absolute;
+.link {
   width: 98px;
   height: 27px;
   left: 154px;
