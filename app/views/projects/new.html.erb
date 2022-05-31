@@ -1,0 +1,7 @@
+<h1>Create a project</h1>
+
+<%= simple_form_for @project do |f| %>
+  <%= f.input :title, required: true %>
+  <%= f.input :description, required: true  %>
+  <%= f.submit "Create project"%>
+<% end %>

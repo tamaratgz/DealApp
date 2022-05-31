@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # resources :users, only: [:show]
   resources :projects
   resources :polls do
-    resources :answers, only: [:new, :create, :delete]
+    resources :answers, only: [:new, :create, :destroy]
   end
   resources :answers, only: [] do
     resources :votes, only: [:create]

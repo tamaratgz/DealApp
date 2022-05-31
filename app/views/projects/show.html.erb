@@ -1,0 +1,19 @@
+<h1><%= @project.title %></h1>
+<h3><%= @project.description %></h3>
+
+<ul>
+  <% @project.polls.each do |poll| %>
+    <li>
+      <div>
+        <h3><%= poll.title %></h3>
+        <p><%= poll.description %></p>
+        <p><%= poll.deadline %></p>
+        <ul>
+          <% poll.answers.each do |answer| %>
+            <li><%= answer.title %> - <%= answer.votes.count %></li>
+          <% end %>
+        </ul>
+      </div>
+    </li>
+  <% end %>
+</ul>
