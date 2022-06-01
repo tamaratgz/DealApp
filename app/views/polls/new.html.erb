@@ -1,2 +1,18 @@
-<h1>Create poll</h1>
-<%= render partial: "form", locals: {poll: @poll} %>
+<h1 class="titlepoll">CREATE A POLL</h1>
+<div class="poll-form">
+  <%= simple_form_for(@poll) do |f| %>
+    <%= f.input :title, :label => false, placeholder: "Question"%>
+    <%= f.input :description, :label => false, placeholder: "Descrition" %>
+    <%= f.input :description, :label => false, placeholder: "Answer" %><i class=“fa-solid fa-trash”></i>
+    <%= f.input :description, :label => false, placeholder: "Answer" %><i class=“fa-solid fa-trash”></i>
+    <%= link_to do %>
+      <i class="fas fa-plus addplus"></i>
+    <% end %>
+    <br>
+    <p class="addnewanswer">Add Another Answer</p>
+    <%= render partial: "form", locals: {poll: @poll} %>
+    <%= f.input :deadline, :label => false, placeholder: "Deadline" %>
+    <%= f.association :project, :label => false, prompt: "Project" %>
+    <%= f.submit class: "btn-main" %>
+</div>
+  <% end %>
