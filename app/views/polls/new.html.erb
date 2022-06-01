@@ -1,4 +1,3 @@
-
 <h1 class="titlepoll">CREATE A POLL</h1>
 <div class="poll-form">
   <%= simple_form_for(@poll) do |f| %>
@@ -11,6 +10,7 @@
     <% end %>
     <br>
     <p class="addnewanswer">Add Another Answer</p>
+    <%= render partial: "form", locals: {poll: @poll} %>
     <%= f.input :deadline, :label => false, placeholder: "Deadline" %>
     <%= f.association :project, :label => false, prompt: "Project" %>
     <%= f.submit class: "btn-main" %>

@@ -1,4 +1,4 @@
 class Project < ApplicationRecord
   belongs_to :user
-  has_many :polls #
+  has_many :polls, dependent: :destroy
 end
