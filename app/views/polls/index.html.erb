@@ -11,11 +11,13 @@
           <p><%= poll.description %></p>
           <ul>
             <% poll.answers.each do |answer| %>
-              <li><%= answer.title %> - <%= answer.votes.count %> votes</li>
+              <li><%= answer.title %> - <%= answer.votes.count %> votes <%= link_to "Delete this answer", poll_answer_path(answer.poll_id, answer.id), method: :delete %></li>
             <% end %>
           </ul>
           <p><strong>Deadline:</strong> <%= poll.deadline %></p>
         </div>
+        <%= link_to "Edit this poll", edit_poll_path(poll) %>
+        <%= link_to "Delete this poll", poll_path(poll), method: :delete %>
       </li>
     <% end %>
   </ul>

@@ -1,9 +1,2 @@
 <h1>Edit <%= @poll.title  %></h1>
-
-<%= simple_form_for(@poll) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :deadline %>
-  <%= f.association :project %>
-  <%= f.submit %>
-<% end %>
+<%= render partial: "form", locals: {poll: @poll} %>

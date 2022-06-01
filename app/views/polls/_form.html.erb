@@ -1,0 +1,25 @@
+<%= simple_form_for(poll) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :deadline %>
+  <%= f.association :project %>
+
+  <div data-controller='nested-form' data-nested-form-wrapper-selector-value='.nested-form-wrapper'>
+    <template data-nested-form-target="template">
+      <%= f.fields_for :answers, Answer.new, child_index: 'NEW_RECORD' do |answer_fields| %>
+        <%= render "answer_form", f: answer_fields %>
+      <% end %>
+    </template>
+
+    <%= f.fields_for :answers do |answer_fields| %>
+      <%= render "answer_form", f: answer_fields %>
+    <% end %>
+
+    <!-- Inserted elements will be injected before that target. -->
+    <div data-nested-form-target="target"></div>
+
+    <button type="button" data-action="nested-form#add">Add answer</button>
+  </div>
+
+  <%= f.submit %>
+<% end %>
