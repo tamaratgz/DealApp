@@ -7,9 +7,11 @@
         <h3><%= poll.title %></h3>
         <p><strong>Description:</strong> <%= poll.description %></p>
         <p><strong>Deadline:</strong> <%= poll.deadline %></p>
+        <%= link_to "Edit this poll", edit_poll_path(poll) %>
+        <%= link_to "Delete this poll", poll_path(poll), method: :delete %>
         <ul>
           <% poll.answers.each do |answer| %>
-            <li><%= answer.title %> - <%= answer.votes.count %> votes</li>
+            <li><%= answer.title %> - <%= answer.votes.count %> votes <%= link_to "Delete this answer", poll_answer_path(answer.poll_id, answer.id), method: :delete %></li>
           <% end %>
         </ul>
       </div>
