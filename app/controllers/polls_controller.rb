@@ -39,7 +39,11 @@ class PollsController < ApplicationController
   def destroy
     @poll = Poll.find(params[:id])
     @poll.destroy
-    redirect_to project_path(@poll.project_id)
+    if @poll.project_id.nil?
+      redirect_to polls_path
+    else
+      redirect_to project_path(@poll.project_id)
+    end
   end
 
   def update_answer
