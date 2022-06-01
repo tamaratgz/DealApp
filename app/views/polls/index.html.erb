@@ -1,4 +1,8 @@
-<h1 class="titlepoll">POLLS</h1>
+<div class="title-with-avatar">
+  <h1 class="titlepoll">POLLS</h1>
+  <%# user-avatar goes here %>
+  <%= image_tag "Avatar.jpg", style: "width: 50px;" "border-radius: 50%"%>
+</div>
 
 <div class="container-poll">
   <ul>
@@ -8,16 +12,41 @@
           <div class="container-poll-title">
             <h3><%= poll.title %></h3>
           </div>
-          <p><%= poll.description %></p>
+          <p style="font-size: 12px"><%= poll.description %></p>
           <ul>
             <% poll.answers.each do |answer| %>
-              <li><%= answer.title %> - <%= answer.votes.count %> votes <%= link_to "Delete this answer", poll_answer_path(answer.poll_id, answer.id), method: :delete %></li>
+              <div class="poll-answer-votes">
+                <li class="poll-answers">
+                  <%= answer.title %>
+                </li>
+                <span class="poll-votes">
+                  <%= answer.votes.count %>
+                </span>
+                <span>
+                  <%= link_to poll_answer_path(answer.poll_id, answer.id), method: :delete do %>
+                    <i class="fa-solid fa-trash"></i>
+                  <% end %>
+                </span>
+              </div>
             <% end %>
           </ul>
-          <p><strong>Deadline:</strong> <%= poll.deadline %></p>
-        </div>
-        <%= link_to "Edit this poll", edit_poll_path(poll) %>
-        <%= link_to "Delete this poll", poll_path(poll), method: :delete %>
+
+          <div class="deadline-and-icons">
+            <p><strong>Deadline:</strong> <%= poll.deadline %></p>
+             <%#poll.deadline - Date.today =  %>
+            <div>
+                <%# Share button to be coded %>
+                <i class="fa-solid fa-share-nodes"></i>
+                <%# End of share button to be coded %>
+                <%= link_to poll_path(poll), method: :delete do %>
+                  <i class="fa-solid fa-trash"></i>
+                <% end %>
+                <%= link_to edit_poll_path(poll) do %>
+                  <i class="fa-solid fa-pencil"></i>
+                <% end %>
+            </div>
+          </div>
+
       </li>
     <% end %>
   </ul>
