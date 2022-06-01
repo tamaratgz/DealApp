@@ -1,20 +1,28 @@
-<h1>All polls without project</h1>
+<h1 class="titlepoll">POLLS</h1>
 
-<ul>
-  <% @polls.each do |poll| %>
-    <li>
-      <div>
-        <h3><%= poll.title %></h3>
-        <p><strong>Description:</strong> <%= poll.description %></p>
-        <p><strong>Deadline:</strong> <%= poll.deadline %></p>
-        <ul>
-          <% poll.answers.each do |answer| %>
-            <li><%= answer.title %> - <%= answer.votes.count %> votes</li>
-          <% end %>
-        </ul>
-      </div>
-    </li>
-  <% end %>
-</ul>
+<div class="container-poll">
+  <ul>
+    <% @polls.each do |poll| %>
+      <li>
+        <div>
+          <div class="container-poll-title">
+            <h3><%= poll.title %></h3>
+          </div>
+          <p><%= poll.description %></p>
+          <ul>
+            <% poll.answers.each do |answer| %>
+              <li><%= answer.title %> - <%= answer.votes.count %> votes</li>
+            <% end %>
+          </ul>
+          <p><strong>Deadline:</strong> <%= poll.deadline %></p>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
 
-<%= link_to "Create poll", new_poll_path %>
+<div class="container-button">
+  <span class="btn-main">
+    <%= link_to "Create poll", new_poll_path %>
+  </span>
+</div>

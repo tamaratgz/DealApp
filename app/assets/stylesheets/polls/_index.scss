@@ -1,0 +1,40 @@
+h3 {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  vertical-align: middle;
+  margin: 0;
+  padding: 10px;
+}
+
+p {
+  margin: 0;
+  padding: 15px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+
+}
+
+.container-poll {
+  border-radius: 10px;
+  border: solid 1px #E9D4E1;
+  margin-right: 10%;
+  margin-left: 10%;
+}
+
+.container-poll-title {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  background: linear-gradient(180deg, #000A63 0%, #860060 100%);
+  padding: 5px;
+  color: white;
+}
