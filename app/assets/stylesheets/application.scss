@@ -15,7 +15,9 @@
 @import "components/banner";
 @import "components/buttons";
 @import "shared/flashes";
-
+@import "pages/newpoll";
+@import "components/formpoll";
+@import "components/navbar";
 
 h1 {
   font-family: 'Abril Fatface', cursive;
@@ -44,4 +46,7 @@ h1 {
   line-height: 150%;
   /* or 22px */
   color: #860060;
+}
+body{
+  background-color: white;
 }
