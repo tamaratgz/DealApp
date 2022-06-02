@@ -46,3 +46,10 @@ div {
     background-color: transparent;
   }
  }
+
+ [id*=edit_poll]{
+   text-align:center
+ }
+[id*=edit_poll] div{
+  margin-bottom:20px;
+}

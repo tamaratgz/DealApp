@@ -1,14 +1,17 @@
 import { Controller } from "@hotwired/stimulus"
 
-// import Typed from "typed.js"
+import Typed from "typed.js"
 
 export default class extends Controller {
 
   connect() {
-    // new Typed(this.element, {
-    //   strings: ["DEAL."],
-    //   typeSpeed: 60,
-    //   loop: true
-    // });
+    console.log("Hello from typedjs")
+
+    new Typed(this.element, {
+      strings: ["DEAL."],
+      typeSpeed: 100,
+      loop: true,
+      showCursor: false
+    });
   }
 }

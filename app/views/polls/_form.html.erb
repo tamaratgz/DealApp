@@ -1,8 +1,7 @@
-<h1 class="titlepoll">CREATE A POLL</h1>
 <div class="poll-form">
   <%= simple_form_for(poll) do |f| %>
     <%= f.input :title, :label => false, placeholder: "Question"%>
-    <%= f.input :description, :label => false, placeholder: "Descrition" %>
+    <%= f.input :description, :label => false, placeholder: "Description" %>
 
     <div data-controller='nested-form' data-nested-form-wrapper-selector-value='.nested-form-wrapper'>
       <template data-nested-form-target="template">
