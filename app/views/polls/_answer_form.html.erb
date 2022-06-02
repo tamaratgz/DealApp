@@ -1,8 +1,8 @@
 <div class="nested-form-wrapper" data-new-record="<%= f.object.new_record? %>">
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-
-  <button type="button" data-action="nested-form#remove">Remove answer</button>
-
+  <%# <%= f.label :title %>
+  <div class="poll-answer-votes">
+    <%= f.text_field :title, :label => false, placeholder: "Answer" %>
+    <button type="button" data-action="nested-form#remove"><i class="fas fa-trash answertrash"></i></button>
+  </div>
   <%= f.hidden_field :_destroy %>
 </div>

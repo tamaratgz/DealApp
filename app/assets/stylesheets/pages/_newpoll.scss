@@ -2,11 +2,13 @@
   font-size: 30px;
   width: 90%;
   margin: 5%;
+  margin-top: 10%;
 }
 .addplus{
-  padding: 4%;
-  font-size: 37px;
-  color: #860060;
+    padding: 4%;
+    font-size: 37px;
+    color: #860060;
+
 }
 .addnewanswer{
   padding-bottom: 5%;
@@ -15,4 +17,8 @@
 .button-plus{
   border: none;
   background-color: transparent;
+}
+
+.answertrash{
+  color: #000A63;
 }
