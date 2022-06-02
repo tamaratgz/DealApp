@@ -5,10 +5,10 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
 
   connect() {
-//     new Typed(this.element, {
-//       strings: ["DEAL."],
-//       typeSpeed: 60,
-//       loop: true
-//     });
+    // new Typed(this.element, {
+    //   strings: ["DEAL."],
+    //   typeSpeed: 60,
+    //   loop: true
+    // });
   }
 }

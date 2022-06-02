@@ -1,12 +1,12 @@
 <div class="title-with-avatar">
   <h1 class="titlepoll">POLLS</h1>
   <%# user-avatar goes here %>
-  <%= image_tag "Avatar.jpg", style: "width: 50px;" "border-radius: 50%"%>
+  <%= image_tag "Avatar.jpg", style: "width: 50px;" "border-radius: 50%", class: "avatar-pages"%>
 </div>
 
-<div class="container-poll">
-  <ul>
-    <% @polls.each do |poll| %>
+<ul>
+  <% @polls.each do |poll| %>
+    <div class="container-poll">
       <li>
         <div>
           <div class="container-poll-title">
@@ -19,13 +19,12 @@
                 <li class="poll-answers">
                   <%= answer.title %>
                 </li>
-                <%= link_to "Vote for this option", answer_votes_path(answer.id), method: :post %>
                 <span class="poll-votes">
-                  <%= answer.votes.count %>
+                 <%= link_to answer.votes.count, answer_votes_path(answer.id), method: :post %>
                 </span>
                 <span>
                   <%= link_to poll_answer_path(answer.poll_id, answer.id), method: :delete do %>
-                    <i class="fas fa-trash"></i>
+                    <i class="fas fa-trash fasicont"></i>
                   <% end %>
                 </span>
               </div>
@@ -33,25 +32,33 @@
           </ul>
 
           <div class="deadline-and-icons">
-            <p><strong>Deadline:</strong> <%= poll.deadline %></p>
+            <% if (poll.deadline.to_date - Date.current).to_i == 1 %>
+              <p><%= (poll.deadline.to_date - Date.current).to_i %>day left</p>
+            <% elsif (poll.deadline.to_date - Date.current).to_i > 1 %>
+              <p><%= (poll.deadline.to_date - Date.current).to_i %> days left</p>
+            <% elsif (poll.deadline.to_date - Date.current).to_i == 0 %>
+              <p>This poll ends today</p>
+            <% else %>
+              <p>This poll has ended</p>
+            <% end %>
              <%#poll.deadline - Date.today =  %>
             <div>
-                <%# Share button to be coded %>
-                <i class="fas fa-share-alt"></i>
-                <%# End of share button to be coded %>
-                <%= link_to poll_path(poll), method: :delete do %>
-                  <i class="fas fa-trash"></i>
-                <% end %>
-                <%= link_to edit_poll_path(poll) do %>
-                  <i class="fas fa-pencil-alt"></i>
-                <% end %>
+              <%# Share button to be coded %>
+              <i class="fas fa-share-alt fasicont"></i>
+              <%# End of share button to be coded %>
+              <%= link_to poll_path(poll), method: :delete do %>
+                <i class="fas fa-trash fasicont"></i>
+              <% end %>
+              <%= link_to edit_poll_path(poll) do %>
+                <i class="fas fa-pencil-alt fasicont"></i>
+              <% end %>
             </div>
           </div>
 
       </li>
-    <% end %>
-  </ul>
-</div>
+    </div>
+  <% end %>
+</ul>
 
 <div class="container-button">
   <span class="btn-main">

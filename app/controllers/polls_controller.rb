@@ -1,7 +1,12 @@
 class PollsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :show
   def index
     # only the ones without project
     @polls = Poll.where(project_id: nil)
+  end
+
+  def show
+    @poll = Poll.find(params[:id])
   end
 
   def new
