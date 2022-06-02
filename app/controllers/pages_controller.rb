@@ -3,4 +3,9 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def login_home
+    @projects = Project.all
+  end
 end
+

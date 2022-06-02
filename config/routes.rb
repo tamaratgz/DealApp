@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   authenticated :user do
-    root to: 'projects#index'
+    root to: 'pages#login_home'
   end
   unauthenticated :user do
     root to: 'pages#home', as: :unauthenticated_root
