@@ -1,21 +1,26 @@
-<h1>Hello!</h1>
-<%# Edit button coming soon: First need profile page %>
-<p>Edit</p>
+<div class="hello-edit">
+  <h1 class="titlepoll">HELLO!</h1>
 
-<div style="background-color: red; margin: 10px;">
-  <%= image_tag "Avatar.jpg", style: "width: 150px; border-radius: 50%", class: "avatar-pages" %>
-  <div class="stats">
-    <div class="polls">
-    <%# Total polls created %>
-      <% polls_count = 0 %>
-      <% current_user.projects.each do |project| %>
-        <% polls_count += project.polls.count %>
-      <% end %>
-      <% polls_count += current_user.polls.count %>
+  <%# Edit button coming soon: First need profile page %>
+  <%= link_to "Edit", "#" %>
+</div>
 
-      <h3><%= polls_count %></h3>
-      <p>polls created</p>
-    </div>
+<div class="profileblock">
+
+  <%# Total polls created %>
+  <div class="polls">
+    <% polls_count = 0 %>
+    <% current_user.projects.each do |project| %>
+      <% polls_count += project.polls.count %>
+    <% end %>
+    <% polls_count += current_user.polls.count %>
+
+    <p style="font-size: 50px; color:white"><%= polls_count %></p>
+    <p style="color:white">polls</p>
+  </div>
+
+  <div>
+    <%= image_tag "Avatar.jpg", style: "width: 100px; border-radius: 50%", class: "avatar-profile" %>
 
     <%# Total answers created %>
     <div class="answers">
@@ -30,18 +35,21 @@
       <% end %>
 
       <div>
-        <h3><%= answer_count %></h3>
-        <p>answers</p>
+        <p style="font-size: 50px; color:white"><%= answer_count %></p>
+        <p style="color:white">answers</p>
       </div>
     </div>
-
-    <%# Total projects created %>
-    <div class="projects">
-      <h3><%= current_user.projects.count %></h3>
-      <p>projects</p>
-    </div>
   </div>
+
+  <%# Total projects created %>
+  <div class="projects">
+    <p style="font-size: 50px; color:white"><%= current_user.projects.count %></p>
+    <p style="color:white">projects</p>
+  </div>
+
 </div>
+
+ </div>
 
 <h3>My polls</h3>
 <%= link_to 'See all', polls_path %>
