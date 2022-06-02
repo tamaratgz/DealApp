@@ -2,6 +2,8 @@ class ProjectsController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
 
   def new
+    # only the ones without project
+    @polls = Poll.where(project_id: nil)
     @project = Project.new
   end
 
@@ -33,7 +35,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
-    redirect_to projects_path
+    redirect_to root_path
   end
 
   private
