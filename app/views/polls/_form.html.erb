@@ -2,7 +2,7 @@
 <div class="poll-form">
   <%= simple_form_for(poll) do |f| %>
     <%= f.input :title, :label => false, placeholder: "Question"%>
-    <%= f.input :description, :label => false, placeholder: "Descrition" %>
+    <%= f.input :description, :label => false, placeholder: "Description" %>
 
     <div data-controller='nested-form' data-nested-form-wrapper-selector-value='.nested-form-wrapper'>
       <template data-nested-form-target="template">
@@ -16,7 +16,7 @@
       <!-- Inserted elements will be injected before that target. -->
       <div data-nested-form-target="target"></div>
       <button class="button-plus" type="button" data-action="nested-form#add"><i class="fas fa-plus addplus"></i></button>
-      <p class="addnewanswer">Add an Answer</p>
+      <p class="addnewanswer">Add an option</p>
     </div>
 
     <%= f.input :deadline, :label => false, placeholder: "Deadline" %>
