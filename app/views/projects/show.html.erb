@@ -8,12 +8,15 @@
   <p><%= @project.description %></p>
 
   <div>
-    <%= link_to edit_project_path do %>
-      <i class="fas fa-pencil-alt fasicont"></i>
-    <% end %>
+    <%# Share button to be coded %>
+    <i class="fas fa-share-alt fasicont"></i>
 
     <%= link_to project_path(@project), method: :delete do %>
       <i class="fas fa-trash fasicont"></i>
+    <% end %>
+
+    <%= link_to edit_project_path do %>
+      <i class="fas fa-pencil-alt fasicont"></i>
     <% end %>
   </div>
 </div>
