@@ -19,7 +19,7 @@
     </div>
 
     <%= f.input :deadline, :label => false, placeholder: "Deadline" %>
-    <%= f.association :project, :label => false, prompt: "Project" %>
+    <%= f.association :project, :label => false, prompt: "Add to project", :include_blank => "No project" %>
     <%= f.submit class: "btn-main" %>
   <% end %>
 </div>
