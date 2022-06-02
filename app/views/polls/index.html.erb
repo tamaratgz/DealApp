@@ -19,6 +19,7 @@
                 <li class="poll-answers">
                   <%= answer.title %>
                 </li>
+                <%= link_to "Vote for this option", answer_votes_path(answer.id), method: :post %>
                 <span class="poll-votes">
                   <%= answer.votes.count %>
                 </span>
