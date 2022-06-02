@@ -15,8 +15,8 @@
     <% end %>
     <% polls_count += current_user.polls.count %>
 
-    <p style="font-size: 50px; color:white"><%= polls_count %></p>
-    <p style="color:white">polls</p>
+    <p style="font-size: 40px; color:white"><%= polls_count %></p>
+    <p style="color:white; margin-top: -40%">polls</p>
   </div>
 
   <div>
@@ -34,17 +34,17 @@
         <% answer_count += poll.answers.count %>
       <% end %>
 
-      <div>
-        <p style="font-size: 50px; color:white"><%= answer_count %></p>
-        <p style="color:white">answers</p>
+      <div class="answers-position">
+        <p style="font-size: 40px; color:white"><%= answer_count %></p>
+        <p style="color:white; margin-top: -15%">answers</p>
       </div>
     </div>
   </div>
 
   <%# Total projects created %>
   <div class="projects">
-    <p style="font-size: 50px; color:white"><%= current_user.projects.count %></p>
-    <p style="color:white">projects</p>
+    <p style="font-size: 40px; color:white"><%= current_user.projects.count %></p>
+    <p style="color:white; margin-top: -20%">projects</p>
   </div>
 
 </div>
