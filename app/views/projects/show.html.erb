@@ -1,25 +1,62 @@
-<h1><%= @project.title %></h1>
-<h3><%= @project.description %></h3>
+<div class="title-with-avatar">
+  <h1 class="titlepoll"><%= @project.title.upcase %></h1>
+  <%# user-avatar goes here %>
+  <%= image_tag "Avatar.jpg", style: "width: 50px;" "border-radius: 50%", class: "avatar-pages"%>
+</div>
 
+<div class="project-description-options">
+  <p><%= @project.description %></p>
+
+  <div>
+    <%= link_to edit_project_path do %>
+      <i class="fas fa-pencil-alt fasicont"></i>
+    <% end %>
+
+    <%= link_to project_path(@project), method: :delete do %>
+      <i class="fas fa-trash fasicont"></i>
+    <% end %>
+  </div>
+</div>
+
+<div class="container-poll">
 <ul>
   <% @project.polls.each do |poll| %>
     <li>
       <div>
-        <h3><%= poll.title %></h3>
-        <p><strong>Description:</strong> <%= poll.description %></p>
-        <p><strong>Deadline:</strong> <%= poll.deadline %></p>
-        <%= link_to "Edit this poll", edit_poll_path(poll) %>
-        <%= link_to "Delete this poll", poll_path(poll), method: :delete %>
+        <div class="container-poll-title">
+          <h3><%= poll.title %></h3>
+        </div>
+        <p style="font-size: 12px"><%= poll.description %></p>
         <ul>
           <% poll.answers.each do |answer| %>
-              <li><%= answer.title %> - <%= answer.votes.count %> votes | <%= link_to "Vote for this option", answer_votes_path(answer.id), method: :post %> | <%= link_to "Delete this option", poll_answer_path(answer.poll_id, answer.id), method: :delete %></li>
+            <div class="poll-answer-votes">
+              <li class="poll-answers">
+                <%= answer.title %>
+              </li>
+              <span class="poll-votes">
+                <%= link_to answer.votes.count, answer_votes_path(answer.id), method: :post %>
+              </span>
+            </div>
           <% end %>
         </ul>
+
+        <div class="deadline-and-icons">
+          <p><strong>Deadline:</strong> <%= poll.deadline %></p>
+            <%#poll.deadline - Date.today =  %>
+          <div>
+            <%# Share button to be coded %>
+            <i class="fas fa-share-alt fasicont"></i>
+            <%# End of share button to be coded %>
+            <%= link_to poll_path(poll), method: :delete do %>
+              <i class="fas fa-trash fasicont"></i>
+            <% end %>
+            <%= link_to edit_poll_path(poll) do %>
+              <i class="fas fa-pencil-alt fasicont"></i>
+            <% end %>
+          </div>
+        </div>
+
       </div>
     </li>
   <% end %>
 </ul>
-
-<%= link_to "Create new poll", new_poll_path%>
-<%= link_to "Edit this project", edit_project_path %>
-<%= link_to "Delete this project", project_path(@project), method: :delete %>
