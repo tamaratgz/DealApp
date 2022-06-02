@@ -13,6 +13,11 @@ p {
   padding: 12px;
 }
 
+.avatar-pages {
+  margin-top: 7.5%;
+  margin-right: 5%
+}
+
 ul {
   list-style: none;
   margin: 0;
@@ -23,7 +28,7 @@ a {
   text-decoration: none;
 }
 
-.fas {
+.fasicont {
   color: #000A63;
   padding-left: 3px;
   font-size: 15px;
@@ -46,7 +51,7 @@ a {
   margin-bottom: 1.5%;
   padding: 5px 7px 5px 7px;
   font-size: 14px;
-  max-width: 15em;
+  width: 18em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -62,6 +67,10 @@ a {
   font-size: 10px;
   min-width: 12%;
   text-align: center;
+
+  a {
+    color: white;
+  }
 }
 
 .poll-answer-votes {
@@ -74,8 +83,8 @@ a {
 .container-poll {
   border-radius: 10px;
   border: solid 1px #E9D4E1;
-  margin-right: 8%;
-  margin-left: 8%;
+  margin-right: 5%;
+  margin-left: 5%;
 }
 
 .container-poll-title {

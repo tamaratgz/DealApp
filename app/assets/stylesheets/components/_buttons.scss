@@ -1,6 +1,6 @@
 .btn-main {
   color: white;
-  padding: 8px 40px;
+  padding: 8px 75px;
   border-radius: 10px;
   font-weight: 700;
   background: #000a63;
@@ -8,6 +8,10 @@
   font-size: 24px;
   width: 89%;
   margin: auto;
+
+  a {
+    color: white;
+  }
 }
 
 .container-button {
