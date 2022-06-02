@@ -4,9 +4,9 @@
   <%= image_tag "Avatar.jpg", style: "width: 50px;" "border-radius: 50%", class: "avatar-pages"%>
 </div>
 
-<div class="container-poll">
-  <ul>
-    <% @polls.each do |poll| %>
+<ul>
+  <% @polls.each do |poll| %>
+    <div class="container-poll">
       <li>
         <div>
           <div class="container-poll-title">
@@ -32,7 +32,15 @@
           </ul>
 
           <div class="deadline-and-icons">
-            <p><strong>Deadline:</strong> <%= poll.deadline %></p>
+            <% if (poll.deadline.to_date - Date.current).to_i == 1 %>
+              <p><%= (poll.deadline.to_date - Date.current).to_i %>day left</p>
+            <% elsif (poll.deadline.to_date - Date.current).to_i > 1 %>
+              <p><%= (poll.deadline.to_date - Date.current).to_i %> days left</p>
+            <% elsif (poll.deadline.to_date - Date.current).to_i == 0 %>
+              <p>This poll ends today</p>
+            <% else %>
+              <p>This poll has ended</p>
+            <% end %>
              <%#poll.deadline - Date.today =  %>
             <div>
               <%# Share button to be coded %>
@@ -48,9 +56,9 @@
           </div>
 
       </li>
-    <% end %>
-  </ul>
-</div>
+    </div>
+  <% end %>
+</ul>
 
 <div class="container-button">
   <span class="btn-main">
