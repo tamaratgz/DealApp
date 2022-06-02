@@ -11,7 +11,7 @@
           <p><%= poll.description %></p>
           <ul>
             <% poll.answers.each do |answer| %>
-              <li><%= answer.title %> - <%= answer.votes.count %> votes <%= link_to "Delete this answer", poll_answer_path(answer.poll_id, answer.id), method: :delete %></li>
+              <li><%= answer.title %> - <%= answer.votes.count %> votes | <%= link_to "Vote for this option", answer_votes_path(answer.id), method: :post %> | <%= link_to "Delete this option", poll_answer_path(answer.poll_id, answer.id), method: :delete %></li>
             <% end %>
           </ul>
           <p><strong>Deadline:</strong> <%= poll.deadline %></p>
