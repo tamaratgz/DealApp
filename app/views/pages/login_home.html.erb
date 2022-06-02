@@ -1,0 +1,116 @@
+<h1>Hello!</h1>
+<%# Edit button coming soon: First need profile page %>
+<p>Edit</p>
+
+<div style="background-color: red; margin: 10px;">
+  <%= image_tag "Avatar.jpg", style: "width: 150px; border-radius: 50%", class: "avatar-pages" %>
+  <div class="stats">
+    <div class="polls">
+    <%# Total polls created %>
+      <% polls_count = 0 %>
+      <% current_user.projects.each do |project| %>
+        <% polls_count += project.polls.count %>
+      <% end %>
+      <% polls_count += current_user.polls.count %>
+
+      <h3><%= polls_count %></h3>
+      <p>polls created</p>
+    </div>
+
+    <%# Total answers created %>
+    <div class="answers">
+      <% answer_count = 0 %>
+      <% current_user.projects.each do |project| %>
+        <% project.polls.each do |poll| %>
+          <% answer_count += poll.answers.count %>
+        <% end %>
+      <% end %>
+      <% current_user.polls.each do |poll| %>
+        <% answer_count += poll.answers.count %>
+      <% end %>
+
+      <div>
+        <h3><%= answer_count %></h3>
+        <p>answers</p>
+      </div>
+    </div>
+
+    <%# Total projects created %>
+    <div class="projects">
+      <h3><%= current_user.projects.count %></h3>
+      <p>projects</p>
+    </div>
+  </div>
+</div>
+
+<h3>My polls</h3>
+<%= link_to 'See all', polls_path %>
+<ul>
+  <% current_user.polls.first(6).each do |poll| %>
+    <li style="background-color: green; margin: 10px;">
+      <%= link_to polls_path do %>
+        <p><strong><%= poll.title %></strong></p>
+      <% end %>
+      <%= link_to polls_path do %>
+        <p><%= poll.description %></p>
+      <% end %>
+      <ul>
+        <% poll.answers.each do |answer| %>
+            <li><%= answer.title %> -
+            <% if answer.votes.count == 1 %>
+              <%= answer.votes.count %> vote
+            <% else %>
+              <%= answer.votes.count %> votes
+            <% end %>
+        <% end %>
+      </ul>
+
+      <div class="deadline-and-icons">
+        <div>
+            <%= (poll.deadline.to_date - Date.current).to_i %>
+            <%= 'days remaining' %>
+          <%# Share button to be coded %>
+          <i class="fa-solid fa-share-nodes"></i>
+          <%# End of share button to be coded %>
+          <%= link_to poll_path(poll), method: :delete do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %>
+          <%= link_to edit_poll_path(poll) do %>
+            <i class="fa-solid fa-pencil"></i>
+          <% end %>
+      </div>
+    </li>
+  <% end %>
+</ul>
+<%= link_to 'Create a new poll', new_poll_path %>
+
+
+
+<h3>My projects</h3>
+<ul>
+  <% @projects.each do |project| %>
+    <li style="background-color: purple; margin: 10px;">
+      <%= link_to project_path(project) do %>
+        <h3><%= project.title %></h3>
+        <% if project.polls.count == 1 %>
+          <p><%= project.polls.count %> poll</p>
+        <% else %>
+          <p><%= project.polls.count %> polls</p>
+        <% end %>
+      <% end %>
+      <div class="deadline-and-icons">
+        <div>
+          <%# Share button to be coded %>
+          <i class="fa-solid fa-share-nodes"></i>
+          <%# End of share button to be coded %>
+          <%= link_to project_path(project), method: :delete do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %>
+          <%= link_to edit_project_path(project) do %>
+            <i class="fa-solid fa-pencil"></i>
+          <% end %>
+      </div>
+    </li>
+  <% end %>
+</ul>
+<%= link_to "Create a new project", new_project_path %>
