@@ -15,12 +15,12 @@
     <% end %>
     <% polls_count += current_user.polls.count %>
 
-    <p style="font-size: 50px; color:white"><%= polls_count %></p>
-    <p style="color:white">polls</p>
+    <p style="font-size: 35px; color:white"><%= polls_count %></p>
+    <p style="color:white; margin-top: -40%">polls</p>
   </div>
 
   <div>
-    <%= image_tag "Avatar.jpg", style: "width: 100px; border-radius: 50%", class: "avatar-profile" %>
+    <%= image_tag "Avatar.jpg", style: "width: 80px; border-radius: 50%", class: "avatar-profile" %>
 
     <%# Total answers created %>
     <div class="answers">
@@ -34,24 +34,24 @@
         <% answer_count += poll.answers.count %>
       <% end %>
 
-      <div>
-        <p style="font-size: 50px; color:white"><%= answer_count %></p>
-        <p style="color:white">answers</p>
+      <div class="answers-position">
+        <p style="font-size: 35px; color:white"><%= answer_count %></p>
+        <p style="color:white; margin-top: -20%">answers</p>
       </div>
     </div>
   </div>
 
   <%# Total projects created %>
   <div class="projects">
-    <p style="font-size: 50px; color:white"><%= current_user.projects.count %></p>
-    <p style="color:white">projects</p>
+    <p style="font-size: 35px; color:white"><%= current_user.projects.count %></p>
+    <p style="color:white; margin-top: -20%">projects</p>
   </div>
 
 </div>
 
  </div>
 
-<h3>My polls</h3>
+<h3 class="titlepoll">My polls</h3>
 <%= link_to 'See all', polls_path %>
 <ul>
   <% current_user.polls.first(6).each do |poll| %>
