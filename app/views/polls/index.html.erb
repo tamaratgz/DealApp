@@ -7,6 +7,8 @@
   <%= image_tag "Avatar.jpg", style: "width: 50px;" "border-radius: 50%", class: "avatar-pages"%>
 </div>
 
+<% @polls = @polls.order(:deadline) %>
+
 <ul>
   <% @polls.each do |poll| %>
     <div class="container-poll">
