@@ -44,7 +44,15 @@
           </ul>
 
           <div class="deadline-and-icons">
-            <p><strong>Deadline:</strong> <%= poll.deadline %></p>
+            <% if (poll.deadline.to_date - Date.current).to_i == 1 %>
+              <p><%= (poll.deadline.to_date - Date.current).to_i %>day left</p>
+            <% elsif (poll.deadline.to_date - Date.current).to_i > 1 %>
+              <p><%= (poll.deadline.to_date - Date.current).to_i %> days left</p>
+            <% elsif (poll.deadline.to_date - Date.current).to_i == 0 %>
+              <p>This poll ends today</p>
+            <% else %>
+              <p>This poll has ended</p>
+            <% end %>
               <%#poll.deadline - Date.today =  %>
             <div>
               <%# Share button to be coded %>

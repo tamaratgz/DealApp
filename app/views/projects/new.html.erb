@@ -1,7 +1,15 @@
-<h1>Create a project</h1>
-
-<%= simple_form_for @project do |f| %>
-  <%= f.input :title, required: true %>
-  <%= f.input :description, required: true  %>
-  <%= f.submit "Create project"%>
+<h1 class="titlepoll">CREATE A PROJECT</h1>
+<div class="poll-form">
+  <%= simple_form_for @project do |f| %>
+    <%= f.input :title, required: true, :label => false, placeholder: "Project Title" %>
+    <%= f.input :description, required: true, :label => false, placeholder: "Description"  %>
+    <ul>
+      <% @polls.each do |poll| %>
+          <li>
+            <h3><%= poll.title %> <%= link_to 'PLUS', poll.project_id = @project.id %></h3>
+          </li>
+      <% end %>
+    </ul>
+  <%= f.submit "Create", class: "crproject" %>
 <% end %>
+</div>
