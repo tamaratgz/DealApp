@@ -1,8 +1,14 @@
+<%# Back button %>
+<div style="margin: 30px;">
+  <%= link_to 'Back', root_path %>
+</div>
+
 <div class="title-with-avatar">
   <h1 class="titlepoll"><%= @project.title.upcase %></h1>
   <%# user-avatar goes here %>
   <%= image_tag "Avatar.jpg", style: "width: 50px;" "border-radius: 50%", class: "avatar-pages"%>
 </div>
+
 
 <div class="project-description-options">
   <p><%= @project.description %></p>
