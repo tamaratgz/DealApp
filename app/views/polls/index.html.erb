@@ -25,7 +25,7 @@
                 </span>
                 <span>
                   <%= link_to poll_answer_path(answer.poll_id, answer.id), method: :delete do %>
-                    <i class="fa-solid fa-trash"></i>
+                    <i class="fas fa-trash"></i>
                   <% end %>
                 </span>
               </div>
@@ -37,13 +37,13 @@
              <%#poll.deadline - Date.today =  %>
             <div>
                 <%# Share button to be coded %>
-                <i class="fa-solid fa-share-nodes"></i>
+                <i class="fas fa-share-alt"></i>
                 <%# End of share button to be coded %>
                 <%= link_to poll_path(poll), method: :delete do %>
-                  <i class="fa-solid fa-trash"></i>
+                  <i class="fas fa-trash"></i>
                 <% end %>
                 <%= link_to edit_poll_path(poll) do %>
-                  <i class="fa-solid fa-pencil"></i>
+                  <i class="fas fa-pencil-alt"></i>
                 <% end %>
             </div>
           </div>
