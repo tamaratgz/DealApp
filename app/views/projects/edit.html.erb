@@ -1,7 +1,8 @@
-<h1>Edit <%= @project.title  %></h1>
-
+<h1 class="titlepoll">EDIT PROJECT</h1>
+<div class="poll-form">
 <%= simple_form_for(@project) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.submit %>
+  <%= f.input :title, :label => false, placeholder: "Project Title" %>
+  <%= f.input :description, :label => false, placeholder: "Description" %>
+  <%= f.submit class: "crproject" %>
 <% end %>
+</div>
