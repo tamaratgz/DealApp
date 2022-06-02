@@ -1,4 +1,6 @@
 class VotesController < ApplicationController
+  skip_before_action :authenticate_user!, only: :create
+
   def create
     @vote = Vote.new
     @vote.answer = Answer.find(params[:answer_id])

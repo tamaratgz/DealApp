@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :show
+
   def new
     @project = Project.new
   end
