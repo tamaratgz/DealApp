@@ -7,8 +7,9 @@
     <% if current_user.avatar.attached? %>
       <%= image_tag current_user.avatar, style: "width: 80px; border-radius: 50%", class: "avatar-profile" %>
     <% else %>
-
-    <% end %></div>
+      <%= image_tag "avatar.jpg", style: "width: 80px; border-radius: 50%", class: "avatar-profile" %>
+    <% end %>
+    </div>
 
 <% current_user.polls = current_user.polls.order(:deadline) %>
 
