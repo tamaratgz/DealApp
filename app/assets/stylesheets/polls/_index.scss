@@ -105,3 +105,14 @@ a {
   align-items: center;
   padding-right: 12px;
 }
+
+.container-projects {
+  border: 1px solid #E9D4E1;
+  border-radius: 10px;
+
+  li, a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
