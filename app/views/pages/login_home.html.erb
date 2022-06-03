@@ -54,13 +54,7 @@
 </div>
 
 
-<%# ############################## %>
-<% current_user.polls.each do |poll| %>
-  <% poll.answers.sort_by do |answer| %>
-    <% answer.votes.count %>
-  <% end %>
-<% end %>
-<%# ############################## %>
+
 
 
 <h3 class="titlepoll">My polls</h3>
@@ -75,7 +69,7 @@
         <p><%= poll.description %></p>
       <% end %>
       <ul>
-        <% poll.answers.each do |answer| %>
+        <% poll.answers.sort_by(&:votes_count).reverse.each do |answer| %>
             <li><%= answer.title %> -
             <% if answer.votes.count == 1 %>
               <%= answer.votes.count %> vote

@@ -4,4 +4,8 @@ class Answer < ApplicationRecord
 
   validates :title, presence: true
   validates :poll, presence: true
+
+  def votes_count
+    votes.count
+  end
 end
