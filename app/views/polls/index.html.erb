@@ -1,8 +1,13 @@
+<div style="margin: 30px;">
+  <%= link_to 'Back', root_path %>
+</div>
 <div class="title-with-avatar">
   <h1 class="titlepoll">POLLS</h1>
   <%# user-avatar goes here %>
-  <%= image_tag "Avatar.jpg", style: "width: 50px;" "border-radius: 50%", class: "avatar-pages"%>
+  <%= image_tag current_user.avatar, style: "width: 50px;" "border-radius: 50%", class: "avatar-pages"%>
 </div>
+
+<% @polls = @polls.order(:deadline) %>
 
 <ul>
   <% @polls.each do |poll| %>

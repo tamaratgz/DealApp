@@ -65,3 +65,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # DEVISE
 gem 'devise'
+
+# Active Storage for Avatars
+gem 'activestorage'
