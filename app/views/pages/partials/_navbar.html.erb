@@ -1,9 +1,9 @@
 
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-bottom">
   <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "logo.png" %>
-    <% end %>
+    <%# <%= link_to root_path, class: "navbar-brand" do %>
+      <%# <%= image_tag "logo.png" %>
+    <%# <% end %>
 
     <%# <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> %>
       <%# <span class="navbar-toggler-icon"></span> %>
@@ -16,15 +16,32 @@
           <%# <li class="nav-item active">
             <%= link_to "Profile", "#", class: "nav-link" %>
           <%# </li> %>
-          <li class="nav-item">
-            <%= link_to "Create poll", new_poll_path, class: "nav-link" %>
+          <li class="nav-item liclasshome">
+            <%= link_to root_path, class: "nav-link" do %>
+            <i class="fas fa-home iconsnavbarhome"></i>
+            <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to "Search", "#", class: "nav-link" %>
+            <%= link_to polls_path, method: :delete, class: "nav-link" do %>
+            <i class="fas fa-question iconsnavbar"></i>
+            <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+            <%= link_to new_poll_path, class: "nav-link" do %>
+            <i class="fas fa-plus-circle iconsnavbarplus"></i>
+            <% end %>
           </li>
+          <li class="nav-item">
+            <%= link_to "#", class: "nav-link" do %>
+            <i class="fas fa-search iconsnavbar"></i>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
+            <i class="fas fa-sign-out-alt iconsnavbar"></i>
+            <% end %>
+          </li>
+
           <%# <li class="nav-item dropdown"> %>
             <%# <%= image_tag "Avatar.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <%# <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown"> %>
