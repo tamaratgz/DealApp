@@ -9,8 +9,15 @@
 
 <% @polls = @polls.order(:deadline) %>
 
+<% Poll.all.sort_by do |poll| %>
+  <% poll.answers.map do |answer| %>
+    <% answer.votes.count %>
+  <% end %>
+<% end %>
+
 <ul>
   <% @polls.each do |poll| %>
+
     <div class="container-poll">
       <li>
         <div>
