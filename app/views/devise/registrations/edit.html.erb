@@ -1,11 +1,13 @@
 <h1>YOUR PROFILE</h1>
-    <%= image_tag "Avatar.jpg", style: "width: 80px; border-radius: 50%"%>
+<%# Works only for newly created accounts AND if picture is directly uploaded. Seed does not work. %>
+<%# <%= image_tag current_user.avatar , style: "width: 80px; border-radius: 50%"%>
 
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.file_field :avatar %>
     <%= f.input :name, required: true, autofocus: true %>
     <%= f.input :email, required: true, autofocus: true %>
 

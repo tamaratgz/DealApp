@@ -1,3 +1,4 @@
+
 <div class="hello-edit">
   <h1 class="titlepoll">HELLO!</h1>
 
@@ -20,7 +21,10 @@
   </div>
 
   <div>
-    <%= image_tag "Avatar.jpg", style: "width: 80px; border-radius: 50%", class: "avatar-profile" %>
+    <%# <% current_user %>
+    <%# <% current_user.avatar %>
+    <%# Works for new created accounts. Seed does not work. %>
+    <%= image_tag current_user.avatar, style: "width: 80px; border-radius: 50%", class: "avatar-profile" %>
 
     <%# Total answers created %>
     <div class="answers">
@@ -103,7 +107,7 @@
 
 <h3>My projects</h3>
 <ul>
-  <% @projects.each do |project| %>
+  <% current_user.projects.each do |project| %>
     <li style="background-color: purple; margin: 10px;">
       <%= link_to project_path(project) do %>
         <h3><%= project.title %></h3>
