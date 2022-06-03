@@ -1,16 +1,22 @@
-<div style="margin: 30px;">
-  <%= link_to 'Back', root_path %>
+<div style="margin: 30px; margin-bottom:5px;">
+  <%= link_to root_path, class: "back" do %>
+  <i class="fas fa-undo iconsnavbar"></i>
+  <% end %>
 </div>
 <div class="title-with-avatar">
   <h1 class="titlepoll">POLLS</h1>
   <%# user-avatar goes here %>
-  <%= image_tag current_user.avatar, style: "width: 50px;" "border-radius: 50%", class: "avatar-pages"%>
-</div>
+    <% if current_user.avatar.attached? %>
+      <%= image_tag current_user.avatar, style: "width: 55px; border-radius: 50%; margin-right: 20px;", class: "avatar-profilepoll" %>
+    <% else %>
+      <%= image_tag "avatar.jpg", style: "width: 55px; border-radius: 50%; margin-right: 20px;", class: "avatar-profilepoll" %>
+    <% end %>
+    </div>
 
-<% @polls = @polls.order(:deadline) %>
+<% current_user.polls = current_user.polls.order(:deadline) %>
 
 <ul>
-  <% @polls.each do |poll| %>
+  <% current_user.polls.each do |poll| %>
     <div class="container-poll">
       <li>
         <div>
@@ -42,11 +48,10 @@
             <% elsif (poll.deadline.to_date - Date.current).to_i > 1 %>
               <p><%= (poll.deadline.to_date - Date.current).to_i %> days left</p>
             <% elsif (poll.deadline.to_date - Date.current).to_i == 0 %>
-              <p>This poll ends today</p>
+              <p>This poll ends today!</p>
             <% else %>
               <p>This poll has ended</p>
             <% end %>
-             <%#poll.deadline - Date.today =  %>
             <div>
               <%# Share button to be coded %>
               <i class="fas fa-share-alt fasicont"></i>
