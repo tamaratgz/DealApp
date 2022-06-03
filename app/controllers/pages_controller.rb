@@ -5,6 +5,5 @@ class PagesController < ApplicationController
   end
 
   def login_home
-    @projects = Project.all
   end
 end

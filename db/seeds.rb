@@ -12,11 +12,15 @@ Poll.destroy_all
 Project.destroy_all
 User.destroy_all
 
-
 # Create user
-user1 = User.new(name: "First User", email: "mail1@mail.com", password: "123456")
+file1 = File.open("app/assets/images/fanny.jpg")
+user1 = User.new(name: "Fanny", email: "mail1@mail.com", password: "123456")
+user1.avatar.attach(io: file1, filename: "fanny.jpg", content_type: 'image/png')
 user1.save
-user2 = User.new(name: "Second User", email: "mail2@mail.com", password: "123456")
+
+file2 = File.open("app/assets/images/emi.jpg")
+user2 = User.new(name: "Emi", email: "mail2@mail.com", password: "123456")
+user2.avatar.attach(io: file2, filename: "emi.jpg", content_type: 'image/png')
 user2.save
 
 

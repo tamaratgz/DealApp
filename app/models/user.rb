@@ -7,4 +7,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :polls, dependent: :destroy
   has_many :projects, dependent: :destroy
+  has_one_attached :avatar
 end
