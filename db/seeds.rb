@@ -21,31 +21,31 @@ user2.save
 
 
 # User 1: First projects
-project1 = Project.new(title: "Bachelorette", description: "emis bachelorette party", user_id: user1.id)
+project1 = Project.new(title: "Bachelorette", description: "Emi's bachelorette party", user_id: user1.id)
 project1.save
-project2 = Project.new(title: "Mayras birhday", description: "surprise birhday party", user_id: user1.id)
+project2 = Project.new(title: "Mayra's birthday", description: "Surprise birthday party", user_id: user1.id)
 project2.save
-project3 = Project.new(title: "Batch 875", description: "idk", user_id: user1.id)
+project3 = Project.new(title: "Batch 875", description: "Best batch ever", user_id: user1.id)
 project3.save
 
 
 # Project 1: First poll
-poll1 = Poll.new(title: "where should we go?", description: "ideas for the destination", deadline: "10/06/2022", user_id: user1.id, project_id: project1.id)
+poll1 = Poll.new(title: "Where should we go?", description: "Ideas for the destination", deadline: "10/06/2022", user_id: user1.id, project_id: project1.id)
 poll1.save
 
 # Project 2: First poll
-poll2 = Poll.new(title: "what gift?", description: "choose best gift option for Mayra", deadline: "10/06/2022", user_id: user2.id, project_id: project2.id)
+poll2 = Poll.new(title: "What gift should we buy?", description: "Choose the best gift option for Mayra", deadline: "10/06/2022", user_id: user2.id, project_id: project2.id)
 poll2.save
 
 # Project 3: First poll
-poll3 = Poll.new(title: "what should we eat tomorrow?", description: "what are you craving for tomorrow", deadline: "10/06/2022", user_id: user2.id, project_id: project3.id)
+poll3 = Poll.new(title: "What should we eat tomorrow?", description: "What are you craving for tomorrow?", deadline: "10/06/2022", user_id: user2.id, project_id: project3.id)
 poll3.save
 
 # Poll without project
-poll4 = Poll.new(title: "which phone is the best?", description: "valid voting over phones", deadline: "10/06/2022", user_id: user2.id)
+poll4 = Poll.new(title: "Which phone is the best?", description: "Valid voting over phones", deadline: "10/06/2022", user_id: user2.id)
 poll4.save
 
-poll5 = Poll.new(title: "what should we drink?", description: "keep your hand off drinks without alcohol", deadline: "10/06/2022", user_id: user2.id)
+poll5 = Poll.new(title: "What should we drink?", description: "Keep your hand off drinks without alcohol", deadline: "10/06/2022", user_id: user2.id)
 poll5.save
 
 # First poll of project 1: answers
@@ -57,44 +57,44 @@ answer3 = Answer.new(title: "Barcelona", poll_id: poll1.id)
 answer3.save
 
 # First poll of project 2: answers
-answer4 = Answer.new(title: "prada purse", poll_id: poll2.id)
+answer4 = Answer.new(title: "Prada purse", poll_id: poll2.id)
 answer4.save
-answer5 = Answer.new(title: "makeup kit", poll_id: poll2.id)
+answer5 = Answer.new(title: "Makeup kit", poll_id: poll2.id)
 answer5.save
-answer6 = Answer.new(title: "gold earrings", poll_id: poll2.id)
+answer6 = Answer.new(title: "Gold earrings", poll_id: poll2.id)
 answer6.save
-answer7 = Answer.new(title: "jeep wrangler", poll_id: poll2.id)
+answer7 = Answer.new(title: "Jeep wrangler", poll_id: poll2.id)
 answer7.save
 
 # First poll of project 3: answers
-answer8 = Answer.new(title: "zen bamboo", poll_id: poll3.id)
+answer8 = Answer.new(title: "Zen bamboo", poll_id: poll3.id)
 answer8.save
-answer9 = Answer.new(title: "mcdonalds", poll_id: poll3.id)
+answer9 = Answer.new(title: "McDonald's", poll_id: poll3.id)
 answer9.save
-answer10 = Answer.new(title: "ginos", poll_id: poll3.id)
+answer10 = Answer.new(title: "Ginos", poll_id: poll3.id)
 answer10.save
 
 
 # First poll of no project: answers
-answer11 = Answer.new(title: "iphone", poll_id: poll4.id)
+answer11 = Answer.new(title: "iPhone", poll_id: poll4.id)
 answer11.save
-answer12 = Answer.new(title: "samsung", poll_id: poll4.id)
+answer12 = Answer.new(title: "Samsung", poll_id: poll4.id)
 answer12.save
-answer13 = Answer.new(title: "xiaomi", poll_id: poll4.id)
+answer13 = Answer.new(title: "Xiaomi", poll_id: poll4.id)
 answer13.save
-answer13 = Answer.new(title: "nokia", poll_id: poll4.id)
+answer13 = Answer.new(title: "Nokia", poll_id: poll4.id)
 answer13.save
 
 # second poll of no project: answers
-answer14 = Answer.new(title: "beer", poll_id: poll5.id)
+answer14 = Answer.new(title: "Beer", poll_id: poll5.id)
 answer14.save
-answer15 = Answer.new(title: "tequila", poll_id: poll5.id)
+answer15 = Answer.new(title: "Tequila", poll_id: poll5.id)
 answer15.save
-answer16 = Answer.new(title: "vodka", poll_id: poll5.id)
+answer16 = Answer.new(title: "Vodka", poll_id: poll5.id)
 answer16.save
-answer17 = Answer.new(title: "wine", poll_id: poll5.id)
+answer17 = Answer.new(title: "Wine", poll_id: poll5.id)
 answer17.save
-answer18 = Answer.new(title: "aguardiente", poll_id: poll5.id)
+answer18 = Answer.new(title: "Aguardiente", poll_id: poll5.id)
 answer18.save
 
 # First poll of project 1 answers: votes
