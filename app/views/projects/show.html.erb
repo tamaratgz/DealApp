@@ -6,7 +6,11 @@
 <div class="title-with-avatar">
   <h1 class="titlepoll"><%= @project.title.upcase %></h1>
   <%# user-avatar goes here %>
-  <%= image_tag @project.user.avatar, style: "width: 50px;" "border-radius: 50%", class: "avatar-pages"%>
+  <% if current_user.avatar.attached? %>
+    <%= image_tag current_user.avatar, style: "width: 80px; border-radius: 50%", class: "avatar-profile" %>
+  <% else %>
+    <%= image_tag "avatar.jpg", style: "width: 80px; border-radius: 50%", class: "avatar-profile" %>
+  <% end %>
 </div>
 
 
