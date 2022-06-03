@@ -56,7 +56,9 @@
 
 </div>
 
- </div>
+
+
+
 
 <h3 class="titlepoll">My polls</h3>
 <%= link_to 'See all', polls_path %>
@@ -70,7 +72,7 @@
         <p><%= poll.description %></p>
       <% end %>
       <ul>
-        <% poll.answers.each do |answer| %>
+        <% poll.answers.sort_by(&:votes_count).reverse.each do |answer| %>
             <li><%= answer.title %> -
             <% if answer.votes.count == 1 %>
               <%= answer.votes.count %> vote

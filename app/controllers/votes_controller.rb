@@ -5,6 +5,7 @@ class VotesController < ApplicationController
     @vote = Vote.new
     @vote.answer = Answer.find(params[:answer_id])
     @vote.user = current_user
+
     if @vote.save
       if @vote.answer.poll.project_id.nil?
         redirect_to polls_path

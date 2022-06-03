@@ -10,17 +10,10 @@
 
     <% end %></div>
 
-<% @polls = @polls.order(:deadline) %>
-
-<% Poll.all.sort_by do |poll| %>
-  <% poll.answers.map do |answer| %>
-    <% answer.votes.count %>
-  <% end %>
-<% end %>
+<% current_user.polls = current_user.polls.order(:deadline) %>
 
 <ul>
-  <% @polls.each do |poll| %>
-
+  <% current_user.polls.each do |poll| %>
     <div class="container-poll">
       <li>
         <div>
