@@ -13,7 +13,39 @@
 }
 .navpoll{
   flex-direction: row;
+  display: flex;
+  align-items: inherit;
+  margin: unset;
+  width: 100%;
+  justify-content: space-between;
+  margin: 0;
 }
-.navbar-nav .nav-link{
-  padding-left: 35px;
+// .navbar-nav .nav-link{
+//   // padding-left: 35px;
+// }
+
+.nav-link img{
+  width: 31px;
+}
+.iconsnavbar{
+  font-size: 28px;
+    background: -webkit-gradient(linear, left top, left bottom, from(#000A63), to(#860060));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.iconsnavbarplus{
+  font-size: 53px;
+    background: -webkit-gradient(linear, left top, left bottom, from(#000A63), to(#860060));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  position: inherit;
+}
+.iconsnavbarhome{
+  font-size: 28px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#000A63), to(#860060));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

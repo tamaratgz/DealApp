@@ -2,7 +2,7 @@
   <h1 class="titlepoll">HELLO!</h1>
 
   <%# Edit button coming soon: First need profile page %>
-  <%= link_to "Edit", "#" %>
+  <%= link_to "Edit", edit_user_registration_path %>
 </div>
 
 <div class="profileblock">
@@ -20,8 +20,12 @@
   </div>
 
   <div>
+    <% if current_user.avatar.attached? %>
+      <%= image_tag current_user.avatar, style: "width: 80px; border-radius: 50%", class: "avatar-profile" %>
+    <% else %>
+      <%= image_tag "avatar.jpg", style: "width: 80px; border-radius: 50%", class: "avatar-profile" %>
+    <% end %>
 
-    <%= image_tag "Avatar.jpg", style: "width: 80px; border-radius: 50%", class: "avatar-profile" %>
 
     <%# Total answers created %>
     <div class="answers">
@@ -69,7 +73,7 @@
         <p style="font-size: 12px"><%= poll.description %></p>
       <% end %>
       <ul>
-        <% poll.answers.each do |answer| %>
+        <% poll.answers.sort_by(&:votes_count).reverse.each do |answer| %>
           <div class="poll-answer-votes">
             <li class="poll-answers">
               <%= answer.title %>
@@ -115,12 +119,9 @@
 
 <h2 class="titlepoll" style="font-size:24px">All my projects</h2>
 <ul>
-  <% @projects.each do |project| %>
-
-    <div class="container-projects" style="margin: 0% 7% 0% 7%">
-
+  <% current_user.projects.each do |project| %>
+  <div class="container-projects" style="margin: 0% 7% 0% 7%">
       <li>
-
           <%= link_to project_path(project) do %>
             <h3 style="color: #000A63"><%= project.title %></h3>
             <% if project.polls.count == 1 %>
@@ -141,11 +142,8 @@
             <i class="fas fa-pencil-alt fasicont"></i>
           <% end %>
         </div>
-
       </li>
-
     </div>
-
   <% end %>
 </ul>
 
