@@ -12,6 +12,7 @@ class VotesController < ApplicationController
         redirect_to project_path(@vote.answer.poll.project_id)
       end
     else
+      flash[:alert] = @vote.errors.full_messages.join(", ")
       redirect_to root_path
     end
   end
