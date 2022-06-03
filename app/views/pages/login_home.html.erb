@@ -53,7 +53,13 @@
 
 </div>
 
- </div>
+
+
+<% current_user.polls.each do |poll| %>
+  <% poll.answers.sort_by do |answer| %>
+    <% answer.votes.count %>
+  <% end %>
+<% end %>
 
 <h3 class="titlepoll">My polls</h3>
 <%= link_to 'See all', polls_path %>
