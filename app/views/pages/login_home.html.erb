@@ -1,4 +1,4 @@
-<div class="hello-edit">
+<div class="title-link">
   <h1 class="titlepoll">HELLO!</h1>
 
   <%# Edit button coming soon: First need profile page %>
@@ -16,10 +16,11 @@
     <% polls_count += current_user.polls.count %>
 
     <p style="font-size: 35px; color:white"><%= polls_count %></p>
-    <p style="color:white; margin-top: -40%">polls</p>
+    <p style="font-size: 13px; color:white">polls</p>
   </div>
 
   <div>
+
     <%= image_tag "Avatar.jpg", style: "width: 80px; border-radius: 50%", class: "avatar-profile" %>
 
     <%# Total answers created %>
@@ -34,9 +35,9 @@
         <% answer_count += poll.answers.count %>
       <% end %>
 
-      <div class="answers-position">
+      <div>
         <p style="font-size: 35px; color:white"><%= answer_count %></p>
-        <p style="color:white; margin-top: -20%">answers</p>
+        <p style="font-size: 13px; color:white">answers</p>
       </div>
     </div>
   </div>
@@ -44,90 +45,112 @@
   <%# Total projects created %>
   <div class="projects">
     <p style="font-size: 35px; color:white"><%= current_user.projects.count %></p>
-    <p style="color:white; margin-top: -20%">projects</p>
+    <p style="font-size: 13px; color:white">projects</p>
   </div>
 
 </div>
 
- </div>
+<div class="title-link">
+  <h2 class="titlepoll" style="font-size:24px">Recent polls</h2>
+  <%= link_to 'See all', polls_path %>
+</div>
 
-<h3 class="titlepoll">My polls</h3>
-<%= link_to 'See all', polls_path %>
 <ul>
-  <% current_user.polls.first(6).each do |poll| %>
-    <li style="background-color: green; margin: 10px;">
+  <% current_user.polls.last(6).each do |poll| %>
+    <div class="container-poll" style="margin: 0% 7% 0% 7%">
+      <div class="container-poll-title">
+        <li>
+          <%= link_to polls_path do %>
+            <h3 style="color: white"><%= poll.title %></h3>
+          <% end %>
+        </li>
+      </div>
       <%= link_to polls_path do %>
-        <p><strong><%= poll.title %></strong></p>
-      <% end %>
-      <%= link_to polls_path do %>
-        <p><%= poll.description %></p>
+        <p style="font-size: 12px"><%= poll.description %></p>
       <% end %>
       <ul>
         <% poll.answers.each do |answer| %>
-            <li><%= answer.title %> -
-            <% if answer.votes.count == 1 %>
-              <%= answer.votes.count %> vote
-            <% else %>
-              <%= answer.votes.count %> votes
-            <% end %>
+          <div class="poll-answer-votes">
+            <li class="poll-answers">
+              <%= answer.title %>
+            </li>
+            <span class="poll-votes">
+              <%= answer.votes.count %>
+            </span>
+          </div>
         <% end %>
       </ul>
 
       <div class="deadline-and-icons">
-        <div>
         <% if (poll.deadline.to_date - Date.current).to_i == 1 %>
           <p><%= (poll.deadline.to_date - Date.current).to_i %>day left</p>
         <% elsif (poll.deadline.to_date - Date.current).to_i > 1 %>
           <p><%= (poll.deadline.to_date - Date.current).to_i %> days left</p>
         <% elsif (poll.deadline.to_date - Date.current).to_i == 0 %>
-          <p>This poll ends today</p>
+          <p>This poll ends today!</p>
         <% else %>
           <p>This poll has ended</p>
         <% end %>
-          <%# Share button to be coded %>
-          <i class="fa-solid fa-share-nodes"></i>
-          <%# End of share button to be coded %>
-          <%= link_to poll_path(poll), method: :delete do %>
-            <i class="fa-solid fa-trash"></i>
-          <% end %>
-          <%= link_to edit_poll_path(poll) do %>
-            <i class="fa-solid fa-pencil"></i>
-          <% end %>
-      </div>
-    </li>
-  <% end %>
-</ul>
-<%= link_to 'Create a new poll', new_poll_path %>
-
-
-
-<h3>My projects</h3>
-<ul>
-  <% @projects.each do |project| %>
-    <li style="background-color: purple; margin: 10px;">
-      <%= link_to project_path(project) do %>
-        <h3><%= project.title %></h3>
-        <% if project.polls.count == 1 %>
-          <p><%= project.polls.count %> poll</p>
-        <% else %>
-          <p><%= project.polls.count %> polls</p>
-        <% end %>
-      <% end %>
-      <div class="deadline-and-icons">
         <div>
           <%# Share button to be coded %>
-          <i class="fa-solid fa-share-nodes"></i>
+          <i class="fas fa-share-alt fasicont"></i>
           <%# End of share button to be coded %>
-          <%= link_to project_path(project), method: :delete do %>
-            <i class="fa-solid fa-trash"></i>
+          <%= link_to poll_path(poll), method: :delete do %>
+            <i class="fas fa-trash fasicont"></i>
           <% end %>
-          <%= link_to edit_project_path(project) do %>
-            <i class="fa-solid fa-pencil"></i>
+          <%= link_to edit_poll_path(poll) do %>
+            <i class="fas fa-pencil-alt fasicont"></i>
           <% end %>
+        </div>
       </div>
-    </li>
+    </div>
   <% end %>
 </ul>
-<p style="padding-bottom: 100px;">
-  <%= link_to "Create a new project", new_project_path %>
-</p>
+
+<div class="container-button" style="padding-bottom: 0">
+  <span class="btn-main">
+    <%= link_to "Create new poll", new_poll_path %>
+  </span>
+</div>
+
+<h2 class="titlepoll" style="font-size:24px">All my projects</h2>
+<ul>
+  <% @projects.each do |project| %>
+
+    <div class="container-projects" style="margin: 0% 7% 0% 7%">
+
+      <li>
+
+          <%= link_to project_path(project) do %>
+            <h3 style="color: #000A63"><%= project.title %></h3>
+            <% if project.polls.count == 1 %>
+              <p><%= project.polls.count %> poll</p>
+            <% else %>
+              <p><%= project.polls.count %> polls</p>
+            <% end %>
+          <% end %>
+
+        <div class="deadline-and-icons">
+        <%# Share button to be coded %>
+          <i class="fas fa-share-alt fasicont"></i>
+          <%# End of share button to be coded %>
+          <%= link_to project_path(project), method: :delete do %>
+            <i class="fas fa-trash fasicont"></i>
+          <% end %>
+          <%= link_to edit_project_path(project) do %>
+            <i class="fas fa-pencil-alt fasicont"></i>
+          <% end %>
+        </div>
+
+      </li>
+
+    </div>
+
+  <% end %>
+</ul>
+
+<div class="container-button">
+  <span class="btn-main">
+    <%= link_to "Create new project", new_project_path %>
+  </span>
+</div>
