@@ -35,22 +35,44 @@
 
 <ul>
   <% @project.polls.each do |poll| %>
+
     <div class="container-poll">
       <li>
         <div>
           <div class="container-poll-title">
-            <h3><%= poll.title %></h3>
+            <h3><%= poll.title.capitalize %></h3>
           </div>
-          <p style="font-size: 12px"><%= poll.description %></p>
+          <p><%= poll.description.capitalize %></p>
+
           <ul>
             <% poll.answers.each do |answer| %>
               <div class="poll-answer-votes">
-                <li class="poll-answers">
-                  <%= answer.title %>
+
+                <li>
+                  <% if answer.votes.count == 1 %>
+                    <%= link_to answer_votes_path(answer.id), method: :post do %>
+                      <div class="answer-vote-percentage">
+                        <div><%= answer.title.capitalize %> (<%= answer.votes.count %> vote)</div>
+                        <div><%= (1/answer.votes.count)*100 %> %</div>
+                      </div>
+                    <% end %>
+                  <% elsif answer.votes.count == 0 %>
+                    <%= link_to answer_votes_path(answer.id), method: :post do %>
+                      <div class="answer-vote-percentage">
+                        <div><%= answer.title.capitalize %> (<%= answer.votes.count %> votes)</div>
+                        <div>0 %</div>
+                      </div>
+                    <% end %>
+                  <% else %>
+                    <%= link_to answer_votes_path(answer.id), method: :post do %>
+                      <div>
+                        <div><%= answer.title.capitalize %> (<%= answer.votes.count %> votes)</div>
+                        <div><%= (1/answer.votes.count)*100 %> %</div>
+                      </div>
+                    <% end %>
+                  <% end %>
                 </li>
-                <span class="poll-votes">
-                  <%= link_to answer.votes.count, answer_votes_path(answer.id), method: :post %>
-                </span>
+
               </div>
             <% end %>
           </ul>
@@ -65,7 +87,7 @@
             <% else %>
               <p>This poll has ended</p>
             <% end %>
-              <%#poll.deadline - Date.today =  %>
+
             <div>
               <%# Share button to be coded %>
               <i class="fas fa-share-alt fasicont"></i>
@@ -78,9 +100,9 @@
               <% end %>
             </div>
           </div>
-
       </li>
     </div>
+
   <% end %>
 </ul>
 

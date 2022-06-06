@@ -55,32 +55,52 @@
 </div>
 
 <div class="title-link">
-  <h2 class="titlepoll" style="font-size:24px">Recent polls</h2>
+  <h2 class="titlepoll" style="font-size:24px">Last created poll</h2>
   <%= link_to 'See all', polls_path %>
 </div>
 
 <ul>
-  <% current_user.polls.last(6).each do |poll| %>
+  <% current_user.polls.last(1).each do |poll| %>
     <div class="container-poll" style="margin: 0% 7% 5% 7%">
-      <div class="container-poll-title">
-        <li>
+      <li>
+      <div>
+        <div class="container-poll-title">
           <%= link_to polls_path do %>
-            <h3 style="color: white"><%= poll.title %></h3>
+            <h3 style="color: white"><%= poll.title.capitalize %></h3>
           <% end %>
-        </li>
-      </div>
-      <%= link_to polls_path do %>
-        <p style="font-size: 12px"><%= poll.description %></p>
-      <% end %>
+        </div>
+        <%= link_to polls_path do %>
+          <p><%= poll.description.capitalize %></p>
+        <% end %>
       <ul>
         <% poll.answers.sort_by(&:votes_count).reverse.each do |answer| %>
           <div class="poll-answer-votes">
-            <li class="poll-answers">
-              <%= answer.title %>
+
+            <li>
+              <% if answer.votes.count == 1 %>
+                <%= link_to answer_votes_path(answer.id), method: :post do %>
+                  <div class="answer-vote-percentage">
+                    <div><%= answer.title.capitalize %> (<%= answer.votes.count %> vote)</div>
+                    <div><%= (1/answer.votes.count)*100 %> %</div>
+                  </div>
+                <% end %>
+              <% elsif answer.votes.count == 0 %>
+                <%= link_to answer_votes_path(answer.id), method: :post do %>
+                  <div class="answer-vote-percentage">
+                    <div><%= answer.title.capitalize %> (<%= answer.votes.count %> votes)</div>
+                    <div>0 %</div>
+                  </div>
+                <% end %>
+              <% else %>
+                <%= link_to answer_votes_path(answer.id), method: :post do %>
+                  <div>
+                    <div><%= answer.title.capitalize %> (<%= answer.votes.count %> votes)</div>
+                    <div><%= (1/answer.votes.count)*100 %> %</div>
+                  </div>
+                <% end %>
+              <% end %>
             </li>
-            <span class="poll-votes">
-              <%= answer.votes.count %>
-            </span>
+
           </div>
         <% end %>
       </ul>
