@@ -33,7 +33,7 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: self-end;
+  align-items: center;
   padding-right: 12px;
   margin-bottom: 1%;
 }
@@ -46,7 +46,6 @@ a {
   border-radius: 10px;
   border: solid 1px #860060;
   margin: 1.5% 2% 3.5% 2%;
-  padding: 5px 7px 5px 7px;
   font-size: 15px;
   width: 95%;
   white-space: nowrap;
@@ -58,16 +57,21 @@ a {
   }
 }
 
-.poll-answer-votes:checked {
-  color: white;
-  font-weight: bold;
-  background-color: #860060;
-}
-
 .answer-vote-percentage {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.vote-percentage-bar {
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  background-color: #860060;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  opacity: .25;
 }
 
 .container-poll {

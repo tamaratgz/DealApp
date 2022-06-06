@@ -9,4 +9,8 @@ class Poll < ApplicationRecord
   validates :description, presence: true
   validates :user, presence: true
   validates :deadline, presence: true
+
+  def votes_count
+    votes.count
+  end
 end

@@ -6,7 +6,8 @@ class PollsController < ApplicationController
   end
 
   def show
-    @poll = current_user.polls.find(params[:id])
+    # @poll = current_user.polls.find(params[:id])
+    @poll = Poll.find(params[:id])
   end
 
   def new
