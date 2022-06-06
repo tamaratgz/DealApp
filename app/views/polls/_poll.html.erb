@@ -15,7 +15,7 @@
             <%= link_to answer_votes_path(answer.id), remote: true, method: :post, 'data-turbolinks-scroll': false do %>
               <div class="answer-vote-percentage">
                 <p><%= answer.title.capitalize %> (<%= pluralize(answer.votes_count, "vote") %>)</p>
-                <p><%= answer.votes_percentage.to_i %> %</p>
+                <%# <p><%= answer.votes_percentage.to_i %> %</p>
               </div>
             <% end %>
           </li>
