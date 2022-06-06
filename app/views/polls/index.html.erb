@@ -27,23 +27,24 @@
           <ul>
             <% poll.answers.each do |answer| %>
               <div class="poll-answer-votes">
+
                 <li>
                   <% if answer.votes.count == 1 %>
-                    <%= link_to answer_votes_path(answer.id), method: :post do %>
+                    <%= link_to answer_votes_path(answer.id), remote: true, method: :post, 'data-turbolinks-scroll': false do %>
                       <div class="answer-vote-percentage">
                         <div><%= answer.title.capitalize %> (<%= answer.votes.count %> vote)</div>
                         <div><%= (1/answer.votes.count)*100 %> %</div>
                       </div>
                     <% end %>
                   <% elsif answer.votes.count == 0 %>
-                    <%= link_to answer_votes_path(answer.id), method: :post do %>
+                    <%= link_to answer_votes_path(answer.id), remote: true, method: :post, 'data-turbolinks-scroll': false do %>
                       <div class="answer-vote-percentage">
                         <div><%= answer.title.capitalize %> (<%= answer.votes.count %> votes)</div>
                         <div>0 %</div>
                       </div>
                     <% end %>
                   <% else %>
-                    <%= link_to answer_votes_path(answer.id), method: :post do %>
+                    <%= link_to answer_votes_path(answer.id), remote: true, method: :post, 'data-turbolinks-scroll': false do %>
                       <div>
                         <div><%= answer.title.capitalize %> (<%= answer.votes.count %> votes)</div>
                         <div><%= (1/answer.votes.count)*100 %> %</div>
@@ -70,7 +71,7 @@
               <%# Share button to be coded %>
               <i class="fas fa-share-alt fasicont"></i>
               <%# End of share button to be coded %>
-              <%= link_to poll_path(poll), method: :delete, data: { confirm: "Are you sure you want to delete this poll?" } do %>
+              <%= link_to poll_path(poll), method: :delete do %>
                 <i class="fas fa-trash fasicont"></i>
               <% end %>
               <%= link_to edit_poll_path(poll) do %>

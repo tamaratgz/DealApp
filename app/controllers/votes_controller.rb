@@ -6,15 +6,11 @@ class VotesController < ApplicationController
     @vote.answer = Answer.find(params[:answer_id])
     @vote.user = current_user
 
-    if @vote.save
-      if @vote.answer.poll.project_id.nil?
-        redirect_to polls_path
-      else
-        redirect_to project_path(@vote.answer.poll.project_id)
-      end
+    flash[:alert] = @vote.errors.full_messages.join(", ") unless @vote.save
+    if @vote.answer.poll.project_id.nil?
+      redirect_to polls_path
     else
-      flash[:alert] = @vote.errors.full_messages.join(", ")
-      redirect_to root_path
+      redirect_to project_path(@vote.answer.poll.project_id)
     end
   end
 end
