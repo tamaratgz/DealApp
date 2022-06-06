@@ -56,16 +56,29 @@
           </ul>
 
           <div class="deadline-and-icons">
-            <% if (poll.deadline.to_date - Date.current).to_i == 1 %>
-              <p><%= (poll.deadline.to_date - Date.current).to_i %>day left</p>
-            <% elsif (poll.deadline.to_date - Date.current).to_i > 1 %>
-              <p><%= (poll.deadline.to_date - Date.current).to_i %> days left</p>
-            <% elsif (poll.deadline.to_date - Date.current).to_i == 0 %>
-              <p>This poll ends today</p>
-            <% else %>
+            <%# HAS ENDED %>
+            <% if (poll.deadline.to_datetime - DateTime.now).negative? %>
               <p>This poll has ended</p>
+            <%# ENDS SAME DAY %>
+            <% elsif (poll.deadline.day == DateTime.now.day) %>
+            <%# MORE THAN ONE HOUR %>
+              <% if (((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2) > 1 %>
+                <p>Poll ends in <%= ((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2 %> hours and <%= ( (((poll.deadline.to_datetime - DateTime.now) * 1440).to_i - 120) - ((((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2) * 60)) %> minutes</p>
+              <%# LESS THAN ONE HOUR %>
+              <% else %>
+                <p>Poll ends in <%= ((poll.deadline.to_datetime - DateTime.now) * 1440).to_i - 120 %> minutes</p>
+              <% end %>
+            <%# TOMORROW %>
+            <% elsif (poll.deadline.day) == (DateTime.now.day + 1) %>
+              <p>Poll ends in one day,
+              <%= ( (((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2) - ((poll.deadline.to_datetime - DateTime.now).to_i * 24) )%> hours and
+              <%= ( ((((poll.deadline.to_datetime - DateTime.now) * 1440).to_i)) - ((((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2) * 60) - 120)%> minutes</p>
+            <%# FUTURE %>
+            <% else %>
+              <p>Poll ends in <%= (poll.deadline.to_datetime - DateTime.now).to_i %> days,
+              <%= ( (((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2) - ((poll.deadline.to_datetime - DateTime.now).to_i * 24) )%> hours and
+              <%= ( ((((poll.deadline.to_datetime - DateTime.now) * 1440).to_i)) - ((((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2) * 60) - 120)%> minutes</p>
             <% end %>
-              <%#poll.deadline - Date.today =  %>
             <div>
               <%# Share button to be coded %>
               <i class="fas fa-share-alt fasicont"></i>
