@@ -53,6 +53,7 @@
 
 </div>
 
+<%# POLLS %>
 <div class="title-link">
   <h2 class="titlepoll">Last created poll</h2>
   <%= link_to 'See all', polls_path %>
@@ -74,6 +75,8 @@
   </span>
 </div>
 
+
+<%# PROJECTS %>
 <h2 class="titlepoll">All my projects</h2>
 <ul>
   <% current_user.projects.each do |project| %>

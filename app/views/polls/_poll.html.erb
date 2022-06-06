@@ -26,7 +26,7 @@
     <%# ENDS SAME DAY %>
     <% elsif (poll.deadline.day == DateTime.now.day) %>
     <%# MORE THAN ONE HOUR %>
-      <% if (((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2) > 1 %>
+      <% if (((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 1) > 1 %>
         <p><%= ((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2 %> h <%= ( (((poll.deadline.to_datetime - DateTime.now) * 1440).to_i - 120) - ((((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2) * 60)) %>m left</p>
       <%# LESS THAN ONE HOUR %>
       <% else %>
