@@ -13,10 +13,8 @@
     <% end %>
     </div>
 
-<% current_user.polls = current_user.polls.order(:deadline) %>
-
 <ul>
-  <% current_user.polls.each do |poll| %>
+  <% current_user.polls.order(:deadline).each do |poll| %>
     <div class="container-poll">
       <li>
         <%= render "polls/poll", poll: poll %>
