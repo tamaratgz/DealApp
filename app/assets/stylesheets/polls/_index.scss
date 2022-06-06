@@ -38,9 +38,12 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: self-end;
   padding-right: 12px;
-  margin-bottom: 5%;
+  margin-bottom: 1%;
+}
+.title-with-avatar .titlepoll{
+  font-size: 27px;
 }
 
 .poll-answers {

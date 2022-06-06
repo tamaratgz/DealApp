@@ -99,7 +99,7 @@
           <%# Share button to be coded %>
           <i class="fas fa-share-alt fasicont"></i>
           <%# End of share button to be coded %>
-          <%= link_to poll_path(poll), method: :delete do %>
+          <%= link_to poll_path(poll), method: :delete, data: { confirm: "Are you sure you want to delete this poll?" } do %>
             <i class="fas fa-trash fasicont"></i>
           <% end %>
           <%= link_to edit_poll_path(poll) do %>
@@ -135,7 +135,7 @@
         <%# Share button to be coded %>
           <i class="fas fa-share-alt fasicont"></i>
           <%# End of share button to be coded %>
-          <%= link_to project_path(project), method: :delete do %>
+          <%= link_to project_path(project), method: :delete, data: { confirm: "Are you sure you want to delete this project?" } do %>
             <i class="fas fa-trash fasicont"></i>
           <% end %>
           <%= link_to edit_project_path(project) do %>
