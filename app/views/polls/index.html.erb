@@ -4,12 +4,12 @@
   <% end %>
 </div>
 <div class="title-with-avatar">
-  <h1 class="titlepoll">POLLS</h1>
+  <h1 class="titlepoll">ALL POLLS</h1>
   <%# user-avatar goes here %>
     <% if current_user.avatar.attached? %>
       <%= image_tag current_user.avatar, style: "width: 55px; border-radius: 50%; margin-right: 20px;", class: "avatar-profilepoll" %>
     <% else %>
-      <%= image_tag "avatar.jpg", style: "width: 55px; border-radius: 50%; margin-right: 20px;", class: "avatar-profilepoll" %>
+      <%= image_tag "avatar.png", style: "width: 55px; border-radius: 50%; margin-right: 20px;", class: "avatar-profilepoll" %>
     <% end %>
     </div>
 
@@ -21,23 +21,38 @@
       <li>
         <div>
           <div class="container-poll-title">
-            <h3><%= poll.title %></h3>
+            <h3><%= poll.title.capitalize %></h3>
           </div>
-          <p style="font-size: 12px"><%= poll.description %></p>
+          <p><%= poll.description.capitalize %></p>
           <ul>
             <% poll.answers.each do |answer| %>
               <div class="poll-answer-votes">
-                <li class="poll-answers">
-                  <%= answer.title %>
-                </li>
-                <span class="poll-votes">
-                  <%= link_to answer.votes.count, answer_votes_path(answer.id), remote: true, method: :post, 'data-turbolinks-scroll': false %>
-                </span>
-                <span>
-                  <%= link_to poll_answer_path(answer.poll_id, answer.id), method: :delete do %>
-                    <i class="fas fa-trash fasicont"></i>
+
+                <li>
+                  <% if answer.votes.count == 1 %>
+                    <%= link_to answer_votes_path(answer.id), remote: true, method: :post, 'data-turbolinks-scroll': false do %>
+                      <div class="answer-vote-percentage">
+                        <div><%= answer.title.capitalize %> (<%= answer.votes.count %> vote)</div>
+                        <div><%= (1/answer.votes.count)*100 %> %</div>
+                      </div>
+                    <% end %>
+                  <% elsif answer.votes.count == 0 %>
+                    <%= link_to answer_votes_path(answer.id), remote: true, method: :post, 'data-turbolinks-scroll': false do %>
+                      <div class="answer-vote-percentage">
+                        <div><%= answer.title.capitalize %> (<%= answer.votes.count %> votes)</div>
+                        <div>0 %</div>
+                      </div>
+                    <% end %>
+                  <% else %>
+                    <%= link_to answer_votes_path(answer.id), remote: true, method: :post, 'data-turbolinks-scroll': false do %>
+                      <div>
+                        <div><%= answer.title.capitalize %> (<%= answer.votes.count %> votes)</div>
+                        <div><%= (1/answer.votes.count)*100 %> %</div>
+                      </div>
+                    <% end %>
                   <% end %>
-                </span>
+                </li>
+
               </div>
             <% end %>
           </ul>

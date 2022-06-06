@@ -1,7 +1,7 @@
 <div class="poll-form">
   <%= simple_form_for(poll) do |f| %>
-    <%= f.input :title, :label => false, placeholder: "Question"%>
-    <%= f.input :description, :label => false, placeholder: "Description" %>
+    <%= f.input :title, :label => "Question", placeholder: "Write your question"%>
+    <%= f.input :description, placeholder: "Write a description (optional)" %>
 
     <div data-controller='nested-form' data-nested-form-wrapper-selector-value='.nested-form-wrapper'>
       <template data-nested-form-target="template">
@@ -18,8 +18,8 @@
       <p class="addnewanswer">Add an option</p>
     </div>
 
-    <%= f.input :deadline, :label => false, placeholder: "Deadline" %>
-    <%= f.association :project, :label => false, prompt: "Add to project", :include_blank => "No project" %>
+    <%= f.input :deadline, :label => "Deadline", placeholder: "Deadline" %>
+    <%= f.association :project, :label => "Add to project", prompt: "Add to project (optional)", :include_blank => "No project" %>
     <%= f.submit class: "btn-main", style: "font-size:24px"  %>
   <% end %>
 </div>
