@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.user = current_user
     if @project.save
-      redirect_to root_path
+      redirect_to success_project_path(@project)
     else
       render :new
     end
@@ -36,6 +36,10 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @project.destroy
     redirect_to root_path
+  end
+
+  def success
+    @project = Project.find(params[:id])
   end
 
   private

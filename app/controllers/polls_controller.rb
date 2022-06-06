@@ -18,11 +18,7 @@ class PollsController < ApplicationController
     @poll = Poll.new(poll_params)
     @poll.user = current_user
     if @poll.save
-      if @poll.project_id.nil?
-        redirect_to polls_path
-      else
-        redirect_to project_path(@poll.project_id)
-      end
+      redirect_to success_poll_path(@poll)
     else
       render :new
     end
@@ -58,6 +54,10 @@ class PollsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def success
+    @poll = Poll.find(params[:id])
   end
 
   private
