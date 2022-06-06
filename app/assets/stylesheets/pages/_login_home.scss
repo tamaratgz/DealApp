@@ -14,8 +14,6 @@
     color: #000A63;
     text-align: right;
   }
-
-
 }
 
 .profileblock {
@@ -35,4 +33,10 @@
     padding: 0;
     line-height: 22px;
   }
+}
+
+.project-names {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

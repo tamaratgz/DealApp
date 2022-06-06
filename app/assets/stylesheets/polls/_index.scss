@@ -58,6 +58,12 @@ a {
   }
 }
 
+.poll-answer-votes:checked {
+  color: white;
+  font-weight: bold;
+  background-color: #860060;
+}
+
 .answer-vote-percentage {
   display: flex;
   flex-direction: row;
