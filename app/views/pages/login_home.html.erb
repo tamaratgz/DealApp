@@ -139,28 +139,18 @@
 <h2 class="titlepoll" style="font-size:24px">All my projects</h2>
 <ul>
   <% current_user.projects.each do |project| %>
-  <div class="container-projects" style="margin: 0% 7% 0% 7%">
-      <li>
+  <div class="container-projects" style="margin: 0% 7% 2% 7%">
+      <li class="project-names">
           <%= link_to project_path(project) do %>
-            <h3 style="color: #000A63"><%= project.title %></h3>
-            <% if project.polls.count == 1 %>
-              <p><%= project.polls.count %> poll</p>
-            <% else %>
-              <p><%= project.polls.count %> polls</p>
-            <% end %>
+            <div><h3 style="color: #000A63"><%= project.title %></h3></div>
+            <div>
+              <% if project.polls.count == 1 %>
+                <p><%= project.polls.count %> poll</p>
+            </div>
+              <% else %>
+            <div><p><%= project.polls.count %> polls</p></div>
+              <% end %>
           <% end %>
-
-        <div class="deadline-and-icons">
-        <%# Share button to be coded %>
-          <i class="fas fa-share-alt fasicont"></i>
-          <%# End of share button to be coded %>
-          <%= link_to project_path(project), method: :delete, data: { confirm: "Are you sure you want to delete this project?" } do %>
-            <i class="fas fa-trash fasicont"></i>
-          <% end %>
-          <%= link_to edit_project_path(project) do %>
-            <i class="fas fa-pencil-alt fasicont"></i>
-          <% end %>
-        </div>
       </li>
     </div>
   <% end %>
