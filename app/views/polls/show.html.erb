@@ -3,5 +3,9 @@
 <%= image_tag @poll.user.avatar, class: "avatar-show" %>
 
 <ul>
-  <%= render 'shared/poll' %>
+  <div class="container-poll">
+    <li>
+      <%= render "polls/poll", poll: @poll %>
+    </li>
+  </div>
 </ul>

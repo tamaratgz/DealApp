@@ -9,9 +9,9 @@
   <h1 class="titlepoll"><%= @project.title.upcase %></h1>
   <%# user-avatar goes here %>
   <% if current_user.avatar.attached? %>
-    <%= image_tag current_user.avatar, style: "width: 55px; border-radius: 50%; margin-right: 20px;", class: "avatar-profile" %>
+    <%= image_tag current_user.avatar, style: "width: 55px; border-radius: 50%; margin-right: 20px" %>
   <% else %>
-    <%= image_tag "avatar.png", style: "width: 55px; border-radius: 50%; margin-right: 20px;", class: "avatar-profile" %>
+    <%= image_tag "avatar.png", style: "width: 55px; border-radius: 50%; margin-right: 20px" %>
   <% end %>
 </div>
 
@@ -38,81 +38,7 @@
 
     <div class="container-poll">
       <li>
-        <div>
-          <div class="container-poll-title">
-            <h3><%= poll.title.capitalize %></h3>
-          </div>
-          <p><%= poll.description.capitalize %></p>
-
-          <ul>
-            <% poll.answers.each do |answer| %>
-              <div class="poll-answer-votes">
-
-                <li>
-                  <% if answer.votes.count == 1 %>
-                    <%= link_to answer_votes_path(answer.id), method: :post do %>
-                      <div class="answer-vote-percentage">
-                        <div><%= answer.title.capitalize %> (<%= answer.votes.count %> vote)</div>
-                        <div><%= (1/answer.votes.count)*100 %> %</div>
-                      </div>
-                    <% end %>
-                  <% elsif answer.votes.count == 0 %>
-                    <%= link_to answer_votes_path(answer.id), method: :post do %>
-                      <div class="answer-vote-percentage">
-                        <div><%= answer.title.capitalize %> (<%= answer.votes.count %> votes)</div>
-                        <div>0 %</div>
-                      </div>
-                    <% end %>
-                  <% else %>
-                    <%= link_to answer_votes_path(answer.id), method: :post do %>
-                      <div>
-                        <div><%= answer.title.capitalize %> (<%= answer.votes.count %> votes)</div>
-                        <div><%= (1/answer.votes.count)*100 %> %</div>
-                      </div>
-                    <% end %>
-                  <% end %>
-                </li>
-
-              </div>
-            <% end %>
-          </ul>
-
-          <div class="deadline-and-icons">
-            <%# HAS ENDED %>
-            <% if (poll.deadline.to_datetime - DateTime.now).negative? %>
-              <p>This poll has ended</p>
-            <%# ENDS SAME DAY %>
-            <% elsif (poll.deadline.day == DateTime.now.day) %>
-            <%# MORE THAN ONE HOUR %>
-              <% if (((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2) > 1 %>
-                <p>Poll ends in <%= ((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2 %> hours and <%= ( (((poll.deadline.to_datetime - DateTime.now) * 1440).to_i - 120) - ((((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2) * 60)) %> minutes</p>
-              <%# LESS THAN ONE HOUR %>
-              <% else %>
-                <p>Poll ends in <%= ((poll.deadline.to_datetime - DateTime.now) * 1440).to_i - 120 %> minutes</p>
-              <% end %>
-            <%# TOMORROW %>
-            <% elsif (poll.deadline.day) == (DateTime.now.day + 1) %>
-              <p>Poll ends in one day,
-              <%= ( (((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2) - ((poll.deadline.to_datetime - DateTime.now).to_i * 24) )%> hours and
-              <%= ( ((((poll.deadline.to_datetime - DateTime.now) * 1440).to_i)) - ((((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2) * 60) - 120)%> minutes</p>
-            <%# FUTURE %>
-            <% else %>
-              <p>Poll ends in <%= (poll.deadline.to_datetime - DateTime.now).to_i %> days,
-              <%= ( (((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2) - ((poll.deadline.to_datetime - DateTime.now).to_i * 24) )%> hours and
-              <%= ( ((((poll.deadline.to_datetime - DateTime.now) * 1440).to_i)) - ((((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2) * 60) - 120)%> minutes</p>
-            <% end %>
-            <div>
-              <%# Share button to be coded %>
-              <i class="fas fa-share-alt fasicont"></i>
-              <%# End of share button to be coded %>
-              <%= link_to poll_path(poll), method: :delete, data: { confirm: "Are you sure you want to delete this poll?" } do %>
-                <i class="fas fa-trash fasicont"></i>
-              <% end %>
-              <%= link_to edit_poll_path(poll) do %>
-                <i class="fas fa-pencil-alt fasicont"></i>
-              <% end %>
-            </div>
-          </div>
+        <%= render "polls/poll", poll: poll %>
       </li>
     </div>
 
