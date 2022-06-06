@@ -3,6 +3,10 @@
     <h3><%= poll.title.capitalize %></h3>
   </div>
   <p><%= poll.description.capitalize %></p>
+  <%# ONLY DISPLAY PROJECT NAME IF IT EXISTS %>
+  <% unless poll.project.nil? %>
+    <p><%= poll.project.title %></p>
+  <% end %>
   <div>
     <ul>
       <% poll.answers.each do |answer| %>
