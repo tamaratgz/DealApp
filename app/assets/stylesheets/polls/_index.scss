@@ -1,6 +1,6 @@
 h3 {
   font-family: 'Urbanist', sans-serif;
-  font-size: 15.5px;
+  font-size: 16px;
   font-weight: bold;
   vertical-align: middle;
   margin: 0;
@@ -11,11 +11,6 @@ p {
   color: #000a63;
   margin: 0;
   padding: 12px;
-}
-
-.avatar-pages {
-  margin-top: 7.5%;
-  margin-right: 5%
 }
 
 ul {
@@ -30,54 +25,49 @@ a {
 
 .fasicont {
   color: #000A63;
-  padding-left: 3px;
   font-size: 15px;
+  margin: 0px 10px;
 }
 
 .title-with-avatar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: self-end;
   padding-right: 12px;
-  margin-bottom: 5%;
+  margin-bottom: 1%;
 }
-
-.poll-answers {
-  color: #860060;
-  border-radius: 10px;
-  border: solid 1px #860060;
-  margin-top: 1.5%;
-  margin-bottom: 1.5%;
-  padding: 5px 7px 5px 7px;
-  font-size: 14px;
-  width: 18em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.poll-votes {
-  border-radius: 10px;
-  background-color: #860060;
-  color: white;
-  margin-top: 1.5%;
-  margin-bottom: 1.5%;
-  padding: 10px;
-  font-size: 10px;
-  min-width: 12%;
-  text-align: center;
-
-  a {
-    color: white;
-  }
+.title-with-avatar .titlepoll{
+  font-size: 27px;
 }
 
 .poll-answer-votes {
+  color: #860060;
+  border-radius: 10px;
+  border: solid 1px #860060;
+  margin: 1.5% 2% 3.5% 2%;
+  padding: 5px 7px 5px 7px;
+  font-size: 15px;
+  width: 95%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  a {
+    color: #860060;
+  }
+}
+
+.poll-answer-votes:checked {
+  color: white;
+  font-weight: bold;
+  background-color: #860060;
+}
+
+.answer-vote-percentage {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-between;
 }
 
 .container-poll {

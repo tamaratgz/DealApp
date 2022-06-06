@@ -9,13 +9,11 @@
     width: 62px;
     height: 16px;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 16px;
     text-decoration-line: underline;
     color: #000A63;
     text-align: right;
   }
-
-
 }
 
 .profileblock {
@@ -37,7 +35,8 @@
   }
 }
 
-.avatar-profile {
-  margin-top: -30%;
-  margin-bottom: 15%;
+.project-names {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

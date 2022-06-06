@@ -6,8 +6,8 @@
 <h1 class="titlepoll">CREATE A PROJECT</h1>
 <div class="poll-form">
   <%= simple_form_for @project do |f| %>
-    <%= f.input :title, required: true, :label => false, placeholder: "Project Title" %>
-    <%= f.input :description, required: true, :label => false, placeholder: "Description"  %>
+    <%= f.input :title, required: true, :label => "Title", placeholder: "Write a title" %>
+    <%= f.input :description, required: true, :label => "Description", placeholder: "Write a description"  %>
     <ul>
       <% @polls.each do |poll| %>
           <li>
