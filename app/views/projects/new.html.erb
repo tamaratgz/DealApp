@@ -8,13 +8,14 @@
   <%= simple_form_for @project do |f| %>
     <%= f.input :title, required: true, :label => false, placeholder: "Project Title" %>
     <%= f.input :description, required: true, :label => false, placeholder: "Description"  %>
-    <ul>
+      <ul>
       <% @polls.each do |poll| %>
           <li>
             <h3><%= poll.title %> <%= link_to 'PLUS', poll.project_id = @project.id %></h3>
           </li>
       <% end %>
     </ul>
+
   <%= f.submit "Create", class: "crproject" %>
 <% end %>
 </div>

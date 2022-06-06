@@ -31,7 +31,7 @@
                   <%= answer.title %>
                 </li>
                 <span class="poll-votes">
-                 <%= link_to answer.votes.count, answer_votes_path(answer.id), method: :post %>
+                  <%= link_to answer.votes.count, answer_votes_path(answer.id), remote: true, method: :post, 'data-turbolinks-scroll': false %>
                 </span>
                 <span>
                   <%= link_to poll_answer_path(answer.poll_id, answer.id), method: :delete do %>

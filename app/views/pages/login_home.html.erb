@@ -27,21 +27,20 @@
     <% end %>
 
 
-    <%# Total answers created %>
-    <div class="answers">
-      <% answer_count = 0 %>
+      <%# Total votes created %>
+    <div class="votes">
+      <% vote_count = 0 %>
       <% current_user.projects.each do |project| %>
         <% project.polls.each do |poll| %>
-          <% answer_count += poll.answers.count %>
+          <% vote_count += poll.votes.count %>
         <% end %>
       <% end %>
       <% current_user.polls.each do |poll| %>
-        <% answer_count += poll.answers.count %>
+        <% vote_count += poll.votes.count %>
       <% end %>
-
       <div>
-        <p style="font-size: 35px; color:white"><%= answer_count %></p>
-        <p style="font-size: 13px; color:white">answers</p>
+        <p style="font-size: 35px; color:white"><%= vote_count %></p>
+        <p style="font-size: 13px; color:white">votes</p>
       </div>
     </div>
   </div>
