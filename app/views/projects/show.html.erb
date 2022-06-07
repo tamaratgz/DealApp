@@ -17,7 +17,7 @@
 
 
 <div class="project-description-options">
-  <p><%= @project.description %></p>
+  <p><%= @project.description.upcase_first %></p>
 
   <div class="icons-show-projects">
     <%= link_to success_project_path(@project) do %>

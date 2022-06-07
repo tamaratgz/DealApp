@@ -55,7 +55,7 @@
 
 <%# POLLS %>
 <div class="title-link">
-  <h2 class="titlepoll">Last created poll</h2>
+  <h2 class="titlepoll">Last poll</h2>
   <%= link_to 'See all', polls_path %>
 </div>
 
@@ -84,7 +84,7 @@
       <li class="project-names">
           <div>
           <%= link_to project_path(project) do %>
-            <h3 style="color: #000A63"><%= project.title %></h3>
+            <p style="color: #000A63"><strong><%= project.title.upcase_first %></strong></p>
           </div>
           <div>
               <% if project.polls.count == 1 %>

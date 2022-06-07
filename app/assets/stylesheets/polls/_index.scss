@@ -44,7 +44,7 @@ a {
 .poll-answer-votes {
   color: #860060;
   border-radius: 10px;
-  border: solid 1px #860060;
+  border: solid 1px rgb(190, 192, 215);
   margin: 1.5% 2% 3.5% 2%;
   font-size: 15px;
   width: 95%;
@@ -67,11 +67,11 @@ a {
   position: absolute;
   width: 0%;
   height: 100%;
-  background-color: #860060;
+  background-color: #000A63;
+  opacity: .25;
   z-index: -1;
   top: 0;
   left: 0;
-  opacity: .25;
 }
 
 .container-poll {
@@ -110,4 +110,17 @@ a {
     align-items: center;
     justify-content: space-between;
   }
+}
+
+.label-project {
+  font-size: 13px;
+  background-color: #000A63;
+  color: white;
+  height: 25px;
+  border-radius: 10px;
+  margin: 0% 3% 3% 3%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: .25;
 }
