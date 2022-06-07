@@ -1,12 +1,9 @@
 <div>
   <div class="container-poll-title">
-    <h3><%= poll.title.capitalize %></h3>
+    <h3><%= poll.title.upcase_first %></h3>
   </div>
-  <p><%= poll.description.capitalize %></p>
+  <p><%= poll.description.upcase_first %></p>
   <%# ONLY DISPLAY PROJECT NAME IF IT EXISTS %>
-  <% unless poll.project.nil? %>
-    <p><%= poll.project.title %></p>
-  <% end %>
   <div>
     <ul>
       <% poll.answers.each do |answer| %>
@@ -14,8 +11,8 @@
             <span class="vote-percentage-bar" style="width: <%= answer.votes_percentage %>%;"></span>
             <%= link_to answer_votes_path(answer.id), remote: true, method: :post, 'data-turbolinks-scroll': false do %>
               <div class="answer-vote-percentage">
-                <p><%= answer.title.capitalize %> (<%= pluralize(answer.votes_count, "vote") %>)</p>
-                <%# <p><%= answer.votes_percentage.to_i %> %</p>
+                <p><%= answer.title.upcase_first %> (<%= pluralize(answer.votes_count, "vote") %>)</p>
+                <p><%= answer.votes_percentage.nan? ? "0" : answer.votes_percentage.to_i %> %</p>
               </div>
             <% end %>
           </li>
@@ -26,24 +23,24 @@
   <div class="deadline-and-icons">
     <%# HAS ENDED %>
     <% if (poll.deadline.to_datetime - DateTime.now).negative? %>
-      <p>This poll has ended</p>
+      <p>🕒 This poll has ended</p>
     <%# ENDS SAME DAY %>
     <% elsif (poll.deadline.day == DateTime.now.day) %>
     <%# MORE THAN ONE HOUR %>
       <% if (((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 1) > 1 %>
-        <p><%= ((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2 %> h <%= ( (((poll.deadline.to_datetime - DateTime.now) * 1440).to_i - 120) - ((((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2) * 60)) %>m left</p>
+        <p>🕒 <%= ((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2 %>h <%= ( (((poll.deadline.to_datetime - DateTime.now) * 1440).to_i - 120) - ((((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2) * 60)) %>m left</p>
       <%# LESS THAN ONE HOUR %>
       <% else %>
-        <p><%= ((poll.deadline.to_datetime - DateTime.now) * 1440).to_i - 120 %>m left</p>
+        <p>🕒 <%= ((poll.deadline.to_datetime - DateTime.now) * 1440).to_i - 120 %>m left</p>
       <% end %>
     <%# TOMORROW %>
     <% elsif (poll.deadline.day) == (DateTime.now.day + 1) %>
-      <p>
-      <%= ( (((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2) - ((poll.deadline.to_datetime - DateTime.now).to_i * 24) )%> h
+      <p>🕒
+      <%= ( (((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2) - ((poll.deadline.to_datetime - DateTime.now).to_i * 24) )%>h
       <%= ( ((((poll.deadline.to_datetime - DateTime.now) * 1440).to_i)) - ((((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2) * 60) - 120)%>m left</p>
     <%# FUTURE %>
     <% else %>
-      <p><%= (poll.deadline.to_datetime - DateTime.now).to_i %>d
+      <p>🕒 <%= (poll.deadline.to_datetime - DateTime.now).to_i %>d
       <%= ( (((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2) - ((poll.deadline.to_datetime - DateTime.now).to_i * 24) )%>h
       <%= ( ((((poll.deadline.to_datetime - DateTime.now) * 1440).to_i)) - ((((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2) * 60) - 120)%>m left</p>
     <% end %>
@@ -60,4 +57,7 @@
       <% end %>
     </div>
   </div>
+    <% unless poll.project.nil? %>
+    <p class="label-project"><%= poll.project.title.upcase_first %></p>
+  <% end %>
 </div>

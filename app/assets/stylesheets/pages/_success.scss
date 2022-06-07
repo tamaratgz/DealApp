@@ -1,0 +1,69 @@
+.share-project {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 414px;
+  height: 902px;
+  left: 0px;
+  top: 0px;
+  background: linear-gradient(180deg, #860060 0%, #FFFFFF 76.44%);
+}
+
+.share-poll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 414px;
+  height: 902px;
+  left: 0px;
+  top: 0px;
+  background: linear-gradient(180deg, #000A63 0%, #FFFFFF 76.44%);
+}
+
+.share-container {
+  box-sizing: border-box;
+  width: 383px;
+  height: 494px;
+  left: 16px;
+  top: 215px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+
+  h1 {
+    font-size: 30px;
+    margin: 0% 10% 0% 10%;
+    text-align: center;
+  }
+
+  p {
+    font-size: 17px;
+    margin: 0% 5% 0% 5%;
+    text-align: center;
+    padding: 25px 12px 25px 12px;
+  }
+}
+
+.share-text-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.copy-link-btn {
+  width: 55px;
+  border-radius: 0px 10px 10px 0px;
+  color: white;
+  background-color: #000A63;
+  border: solid 0px;
+}
+
+.js-copytextarea {
+  border-radius: 10px 0px 0px 10px;
+  padding: 3%;
+  width: 55%;
+  color: rgb(190, 192, 215);
+  border: solid 1px rgb(190, 192, 215);
+}
