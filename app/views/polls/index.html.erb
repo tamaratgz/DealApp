@@ -3,6 +3,7 @@
   <i class="fas fa-undo iconsnavbar"></i>
   <% end %>
 </div>
+
 <div class="title-with-avatar">
   <h1 class="titlepoll">ALL POLLS</h1>
   <%# user-avatar goes here %>
@@ -13,8 +14,21 @@
     <% end %>
     </div>
 
+
+<h2 style="font-size: 20px; margin-left: 5%; margin-bottom: 5%;">Active polls</h2>
 <ul>
-  <% current_user.polls.order(:deadline).each do |poll| %>
+  <% @open_polls.each do |poll| %>
+    <div class="container-poll">
+      <li>
+        <%= render "polls/poll", poll: poll %>
+      </li>
+    </div>
+  <% end %>
+</ul>
+
+<h2 style="font-size: 20px; margin-left: 5%; margin-bottom: 5%;">Inactive polls</h2>
+<ul>
+  <% @closed_polls.each do |poll| %>
     <div class="container-poll">
       <li>
         <%= render "polls/poll", poll: poll %>
