@@ -11,7 +11,7 @@
           <%= f.error_notification %>
 
           <div class="form-inputs">
-            <%= f.file_field :avatar %>
+            <%= f.input :avatar, as: :file %>
             <%= f.input :name, required: true, autofocus: true %>
             <%= f.input :email, required: true, autofocus: true %>
 

@@ -5,8 +5,14 @@ class Vote < ApplicationRecord
   validate :one_vote_per_poll, :deadline_valid
 
   def one_vote_per_poll
-    unless answer.poll.votes.where(user_id: self.user_id).empty?
-      errors.add(:one_vote_per_poll, ":)")
+    if user_id != nil
+      unless answer.poll.votes.where(user_id: self.user_id).empty?
+        errors.add(:one_vote_per_poll, ":)")
+      end
+    else
+      unless answer.poll.votes.where(name: self.name).empty?
+        errors.add(:one_vote_per_poll, ":)")
+      end
     end
   end
 
