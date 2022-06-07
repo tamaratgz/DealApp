@@ -49,9 +49,9 @@
     <% end %>
 
     <div>
-      <%# Share button to be coded %>
-      <i class="fas fa-share-alt fasicont"></i>
-      <%# End of share button to be coded %>
+      <%= link_to success_poll_path(poll) do %>
+        <i class="fas fa-share-alt fasicont"></i>
+      <% end %>
       <%= link_to poll_path(poll), method: :delete, data: { confirm: "Are you sure you want to detete this poll?" } do %>
         <i class="fas fa-trash fasicont"></i>
       <% end %>
