@@ -10,9 +10,9 @@
   <%# Total polls created %>
   <div class="polls">
     <% polls_count = 0 %>
-    <% current_user.projects.each do |project| %>
-      <% polls_count += project.polls.count %>
-    <% end %>
+    <%# <% current_user.projects.each do |project| %>
+      <%# <% polls_count += project.polls.count %>
+    <%# <% end %>
     <% polls_count += current_user.polls.count %>
 
     <p style="font-size: 35px; color:white"><%= polls_count %></p>
@@ -30,11 +30,11 @@
       <%# Total votes created %>
     <div class="votes">
       <% vote_count = 0 %>
-      <% current_user.projects.each do |project| %>
-        <% project.polls.each do |poll| %>
-          <% vote_count += poll.votes.count %>
-        <% end %>
-      <% end %>
+      <%# <% current_user.projects.each do |project| %>
+        <%# <% project.polls.each do |poll| %>
+          <%# <% vote_count += poll.votes.count %>
+        <%# <% end %>
+      <%# <% end %>
       <% current_user.polls.each do |poll| %>
         <% vote_count += poll.votes.count %>
       <% end %>
