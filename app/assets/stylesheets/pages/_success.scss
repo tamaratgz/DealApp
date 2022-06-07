@@ -3,10 +3,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 414px;
-  height: 902px;
-  left: 0px;
-  top: 0px;
+  width: 100vw;
+  height: 100vh;
   background: linear-gradient(180deg, #860060 0%, #FFFFFF 76.44%);
 }
 
@@ -15,19 +13,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 414px;
-  height: 902px;
-  left: 0px;
-  top: 0px;
+  width: 100vw;
+  height: 100vh;
   background: linear-gradient(180deg, #000A63 0%, #FFFFFF 76.44%);
 }
 
 .share-container {
   box-sizing: border-box;
-  width: 383px;
-  height: 494px;
-  left: 16px;
-  top: 215px;
+  width: 95%;
+  height: 60%;
   background: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 10px;
