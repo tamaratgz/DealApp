@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   resources :answers, only: [] do
     resources :votes, only: [:create]
   end
+  resources :guests, only: :create
 end
