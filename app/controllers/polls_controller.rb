@@ -1,8 +1,17 @@
 class PollsController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
+
   def index
-    # only the ones without project
-    @polls = current_user.polls.where(project_id: nil)
+    if params[:query].present?
+      @polls = current_user.polls.where("title ILIKE ?", "%#{params[:query]}%")
+    else
+      @polls = current_user.polls
+    end
+
+    @polls = @polls.order(deadline: :asc)
+
+    @open_polls = @polls.where("deadline >= ?", DateTime.now)
+    @closed_polls = @polls.where("deadline < ?", DateTime.now)
   end
 
   def show

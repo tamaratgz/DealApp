@@ -19,8 +19,8 @@
             <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to "#", class: "nav-link" do %>
-            <i class="fas fa-search iconsnavbar"></i>
+            <%= link_to "#", class: "nav-link", data: {bs_toggle:"modal", bs_target:"#searchModal"} do %>
+              <i class="fas fa-search iconsnavbar"></i>
             <% end %>
           </li>
           <li class="nav-item dropdown">
@@ -32,5 +32,36 @@
           </li>
         <% end %>
       </ul>
+  </div>
+</div>
+
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="searchModalLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Search form -->
+        <h1 class="titlepoll"> SEARCH</h1>
+        <%= form_tag polls_path, method: :get do %>
+          <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a poll"
+          %>
+          <%= submit_tag "Search" %>
+        <% end %>
+        <!-- End of search form -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
   </div>
 </div>
