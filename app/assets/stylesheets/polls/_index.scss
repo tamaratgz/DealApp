@@ -46,11 +46,13 @@ a {
   border-radius: 10px;
   border: solid 1px #860060;
   margin: 1.5% 2% 3.5% 2%;
-  font-size: 15px;
+  font-size: 18px;
   width: 95%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
 
   a {
     color: #860060;
