@@ -1,21 +1,8 @@
 
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-bottom">
   <div class="container-fluid">
-    <%# <%= link_to root_path, class: "navbar-brand" do %>
-      <%# <%= image_tag "logo.png" %>
-    <%# <% end %>
-
-    <%# <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> %>
-      <%# <span class="navbar-toggler-icon"></span> %>
-    <%# </button> %>
-
-    <%# <div class="collapse navbar-collapse" id="navbarSupportedContent"> %>
-
       <ul class="navbar-nav me-auto navpoll">
         <% if user_signed_in? %>
-          <%# <li class="nav-item active">
-            <%= link_to "Profile", "#", class: "nav-link" %>
-          <%# </li> %>
           <li class="nav-item liclasshome">
             <%= link_to root_path, class: "nav-link" do %>
             <i class="fas fa-home iconsnavbarhome"></i>
@@ -36,29 +23,14 @@
             <i class="fas fa-search iconsnavbar"></i>
             <% end %>
           </li>
-          <li class="nav-item">
-            <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
-            <i class="fas fa-sign-out-alt iconsnavbar"></i>
+          <li class="nav-item dropdown">
+            <% if current_user.avatar.attached? %>
+              <%= link_to edit_user_registration_path do %>
+                <%= image_tag current_user.avatar, class: "avatar dropdown-toggle" %>
+              <% end %>
             <% end %>
-          </li>
-
-          <%# <li class="nav-item dropdown"> %>
-            <%# <%= image_tag "Avatar.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <%# <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown"> %>
-               <%# link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-            <%# </div> %>
-          <%# </li> %>
-              <%# <% if current_user.avatar.attached? %>
-                <%# <%= image_tag current_user.avatar, style: "width: 80px; border-radius: 50%", class: "avatar-profile" %>
-              <%# <% else %>
-                <%# <%= image_tag "avatar.jpg", style: "width: 80px; border-radius: 50%", class: "avatar-profile" %>
-              <%# <% end %>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
           </li>
         <% end %>
       </ul>
-    <%# </div> %>
   </div>
 </div>
