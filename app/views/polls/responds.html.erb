@@ -1,3 +1,4 @@
+
 <h1 class="titlepoll">Responds</h1>
 <h3><%= @poll.title %></h3>
 <p><%= @poll.description %></p>
@@ -19,10 +20,10 @@
               <li>
                 <div class="respondent-info" style="display: flex;">
                   <% if vote.user_id %>
-                    <p class="initial-background" style="border-radius: 50%; width: 25px; height: 25px;"><%= User.find(vote.user_id).name[0] %></p>
-                    <p><%= User.find(vote.user_id).name %></p>
+                    <p class="initial-background" style="border-radius: 50%; width: 25px; height: 25px; background-color: <%= avatar_bg_color(vote.user.name) %>"><%= vote.user.initials %></p>
+                    <p><%= vote.user.name %></p>
                   <% else %>
-                    <p class="initial-background" style="border-radius: 50%; width: 25px; height: 25px;"><%= vote.name[0] %></p>
+                    <p class="initial-background" style="border-radius: 50%; width: 25px; height: 25px; background-color: <%= avatar_bg_color(vote.name) %>"><%= vote.name.first %></p>
                     <p><%= vote.name %></p>
                   <% end %>
                 </div>
@@ -34,21 +35,19 @@
   </div>
 
 <script>
-  const setBackgroundColor = () => {
-    const avatars = document.querySelectorAll('.initial-background')
-    avatars.forEach(element => {
-        function random_bg_color() {
-          var x = Math.floor(Math.random() * 256);
-          var y = Math.floor(Math.random() * 256);
-          var z = Math.floor(Math.random() * 256);
-          var bgColor = "rgb(" + x + "," + y + "," + z + ")";
-          console.log(bgColor);
-          element.style.backgroundColor = bgColor
-        }
-        random_bg_color();
-    });
-  };
-  window.onload = () => {
-    setBackgroundColor()
-  };
+  // const setBackgroundColor = () => {
+  //   const avatars = document.querySelectorAll('.initial-background')
+  //   avatars.forEach(element => {
+  //       function random_bg_color() {
+  //         var x = Math.floor(Math.random() * 256);
+  //         var y = Math.floor(Math.random() * 256);
+  //         var z = Math.floor(Math.random() * 256);
+  //         var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+  //         console.log(bgColor);
+  //         element.style.backgroundColor = bgColor
+  //       }
+  //       random_bg_color();
+  //   });
+  // };
+  // window.onload = setBackgroundColor;
 </script>
