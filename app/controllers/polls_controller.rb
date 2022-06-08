@@ -60,6 +60,10 @@ class PollsController < ApplicationController
     @poll = Poll.find(params[:id])
   end
 
+  def responds
+    @poll = Poll.find(params[:id])
+  end
+
   private
 
   def poll_params

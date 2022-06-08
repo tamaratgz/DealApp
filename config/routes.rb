@@ -12,7 +12,8 @@ Rails.application.routes.draw do
     get "success", on: :member
   end
   resources :polls do
-    get "success" , on: :member
+    get "success", on: :member
+    get "responds", on: :member
     resources :answers, only: [:new, :create, :destroy]
   end
   resources :answers, only: [] do
