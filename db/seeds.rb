@@ -17,12 +17,12 @@ User.destroy_all
 file1 = File.open("app/assets/images/fanny.png")
 user1 = User.new(name: "Manuela", email: "manuela@mail.com", password: "123456")
 user1.avatar.attach(io: file1, filename: "fanny.png", content_type: 'image/png')
-user1.save
+user1.save!
 
 file2 = File.open("app/assets/images/emi.png")
 user2 = User.new(name: "Tamara", email: "tamara@mail.com", password: "123456")
 user2.avatar.attach(io: file2, filename: "emi.png", content_type: 'image/png')
-user2.save
+user2.save!
 
 
 # User 1: First projects
