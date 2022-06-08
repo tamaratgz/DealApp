@@ -8,4 +8,8 @@ class User < ApplicationRecord
   has_many :polls, dependent: :destroy
   has_many :projects, dependent: :destroy
   has_one_attached :avatar
+
+  def initials
+    "#{name.first}"
+  end
 end
