@@ -2,8 +2,10 @@
   <div class="container-poll-title">
     <h3><%= poll.title.upcase_first %></h3>
   </div>
+
   <p><%= poll.description.upcase_first %></p>
   <%# ONLY DISPLAY PROJECT NAME IF IT EXISTS %>
+
   <div>
     <ul>
       <% poll.answers.each do |answer| %>
@@ -44,6 +46,7 @@
       <%= ( (((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2) - ((poll.deadline.to_datetime - DateTime.now).to_i * 24) )%>h
       <%= ( ((((poll.deadline.to_datetime - DateTime.now) * 1440).to_i)) - ((((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2) * 60) - 120)%>m left</p>
     <% end %>
+
     <% if poll.user == current_user %>
       <div>
         <%= link_to responds_poll_path(poll) do %>
@@ -60,7 +63,9 @@
         <% end %>
       </div>
     <% end %>
+
   </div>
+
     <% unless poll.project.nil? %>
     <p class="label-project"><%= poll.project.title.upcase_first %></p>
   <% end %>
