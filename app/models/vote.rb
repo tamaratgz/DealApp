@@ -17,9 +17,8 @@ class Vote < ApplicationRecord
   end
 
   def deadline_valid
-    if (answer.poll.deadline.to_datetime - DateTime.current) < 0
-      errors.add(:deadline_valid, "Poll has ended")
+    if (answer.poll.deadline.to_datetime - DateTime.current).negative?
+      errors.add(:poll_has_ended, ":(")
     end
   end
 end
-1
