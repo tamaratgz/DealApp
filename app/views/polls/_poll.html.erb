@@ -44,21 +44,22 @@
       <%= ( (((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2) - ((poll.deadline.to_datetime - DateTime.now).to_i * 24) )%>h
       <%= ( ((((poll.deadline.to_datetime - DateTime.now) * 1440).to_i)) - ((((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2) * 60) - 120)%>m left</p>
     <% end %>
-
-    <div>
-      <%= link_to responds_poll_path(poll) do %>
-        <i class="fas fa-eye fasicont"></i>
-      <% end %>
-      <%= link_to success_poll_path(poll) do %>
-        <i class="fas fa-share-alt fasicont"></i>
-      <% end %>
-      <%= link_to poll_path(poll), method: :delete, data: { confirm: "Are you sure you want to detete this poll?" } do %>
-        <i class="fas fa-trash fasicont"></i>
-      <% end %>
-      <%= link_to edit_poll_path(poll) do %>
-        <i class="fas fa-pencil-alt fasicont"></i>
-      <% end %>
-    </div>
+    <% if poll.user == current_user %>
+      <div>
+        <%= link_to responds_poll_path(poll) do %>
+          <i class="fas fa-eye fasicont"></i>
+        <% end %>
+        <%= link_to success_poll_path(poll) do %>
+          <i class="fas fa-share-alt fasicont"></i>
+        <% end %>
+        <%= link_to poll_path(poll), method: :delete, data: { confirm: "Are you sure you want to detete this poll?" } do %>
+          <i class="fas fa-trash fasicont"></i>
+        <% end %>
+        <%= link_to edit_poll_path(poll) do %>
+          <i class="fas fa-pencil-alt fasicont"></i>
+        <% end %>
+      </div>
+    <% end %>
   </div>
     <% unless poll.project.nil? %>
     <p class="label-project"><%= poll.project.title.upcase_first %></p>
