@@ -6,12 +6,16 @@
   background: #000a63;
   font-family: 'Urbanist', sans-serif;
   font-size: 14px;
-  width: 89%;
   margin: auto;
   text-align: center;
+  white-space: nowrap;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 
   a {
     color: white;
+    font-size: 20px;
   }
 }
 
