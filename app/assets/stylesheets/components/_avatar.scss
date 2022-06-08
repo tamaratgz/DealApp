@@ -1,6 +1,8 @@
 .avatar {
   width: 40px;
   border-radius: 50%;
+  height: 40px;
+  object-fit: cover;
 }
 .avatar-large {
   width: 56px;
@@ -27,6 +29,8 @@
 .avatar-profile {
   margin-top: -30%;
   margin-bottom: 15%;
+  height: 80px;
+  object-fit: cover;
 }
 
 .avatar-show {
