@@ -1,0 +1,32 @@
+.form-control{
+  margin-bottom: 10%;
+  border-radius: 10px;
+  padding: 3%0.75rem;
+}
+.search-button{
+  color: white;
+  padding: 8px 75px;
+  border-radius: 10px;
+  font-weight: 700;
+  background: #000a63;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 20px;
+  margin: auto;
+  text-align: center;
+  display: block;
+}
+.titlesearch{
+  padding: 0% !important;
+  display: flex;
+  justify-content: center;
+}
+.searchimage{
+  height: 350px;
+  border-radius: 20px;
+  -o-object-fit: cover;
+  width: 100%;
+  margin: auto;
+  object-fit: cover;
+  margin-top: 10%;
+  opacity: .8;
+}
