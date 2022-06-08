@@ -20,7 +20,7 @@
 
     <%= f.input :deadline, :label => "Deadline", placeholder: "Deadline", discard_hour: true %>
     <%= f.input :deadline, :label => false, placeholder: "Deadline", discard_year: true, discard_month: true, wrapper_html: {data: {controller: "remove-hidden"}} %>
-    <%= f.association :project, :label => "Add to project", prompt: "Add to project (optional)", :include_blank => "No project" %>
+    <%= f.association :project, collection: current_user.projects, :label => "Add to project", prompt: "Add to project (optional)", :include_blank => "No project" %>
     <%= f.submit class: "btn-main", style: "font-size:24px" %>
   <% end %>
 </div>
