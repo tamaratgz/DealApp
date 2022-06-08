@@ -11,13 +11,15 @@
 
     <div>
       <h1>SHARE YOUR PROJECT!</h1>
-      <p>Amazing! You just created a project. Now go and share it and start making decisions!</p>
+      <p>Amazing! You just created a project. Now share it and start making decisions!</p>
     </div>
 
     <div class="share-text-area">
       <textarea class="js-copytextarea" readonly>http://www.deal-app.me<%= project_path(@project) %></textarea>
       <button class="copy-link-btn"><i class="fas fa-share-alt"></i></button>
     </div>
+
+    <%= image_tag "https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=http://www.deal-app.me#{project_path(@project)}", class:"qrcode" %>
 
     <div style="padding:25px; text-align: center">
       <%= link_to "Go to project", project_path(@project), class:"btn-main", style:"font-size:20px" %>
