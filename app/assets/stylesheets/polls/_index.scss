@@ -51,18 +51,10 @@ a {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  display: flex;
-  align-items: center;
 
   a {
     color: #860060;
   }
-}
-
-.answer-vote-percentage {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 }
 
 .vote-percentage-bar {
@@ -74,6 +66,12 @@ a {
   z-index: -1;
   top: 0;
   left: 0;
+}
+
+.answer-vote-percentage {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .container-poll {

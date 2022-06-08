@@ -1,38 +1,50 @@
 
-<h1 class="titlepoll">Responds</h1>
-<h3><%= @poll.title %></h3>
-<p><%= @poll.description %></p>
+<h1 class="titlepoll">RESPONSES</h1>
+<h2 class="titlepoll" style="font-size: 25px"><%= @poll.title %></h2>
 
-  <div>
-    <ul>
-      <% @poll.answers.each do |answer| %>
-          <li class="poll-answer-votes position-relative">
-            <span class="vote-percentage-bar" style="width: <%= answer.votes_percentage %>%;"></span>
-            <%= link_to answer_votes_path(answer.id), remote: true, method: :post, 'data-turbolinks-scroll': false do %>
-              <div class="answer-vote-percentage">
-                <p><%= answer.title.upcase_first %> (<%= pluralize(answer.votes_count, "vote") %>)</p>
-                <p><%= answer.votes_percentage.nan? ? "0" : answer.votes_percentage.to_i %> %</p>
-              </div>
-            <% end %>
+<div class="project-description-options">
+  <p><%= @poll.description %></p>
+</div>
+
+<div class="responses-container">
+  <ul style="padding-bottom: 180px">
+    <% @poll.answers.each do |answer| %>
+      <li class="poll-answer-votes position-relative">
+        <span class="vote-percentage-bar" style="width: <%= answer.votes_percentage %>%;"></span>
+        <%= link_to answer_votes_path(answer.id), remote: true, method: :post, 'data-turbolinks-scroll': false do %>
+          <div class="answer-vote-percentage">
+            <p><%= answer.title.upcase_first %> (<%= pluralize(answer.votes_count, "vote") %>)</p>
+            <p><%= answer.votes_percentage.nan? ? "0" : answer.votes_percentage.to_i %> %</p>
+          </div>
+        <% end %>
+      </li>
+
+
+      <p style="font-weight:bold; font-size: 17px">Respondents ▾</p>
+
+      <ul>
+        <% answer.votes.each do |vote| %>
+          <li>
+            <div class="respondent-info">
+                <% if vote.user_id %>
+                  <div class="initial-background" style="background-color: <%= avatar_bg_color(vote.user.name) %>">
+                  <span class="initial"><%= vote.user.initials %></span>
+                  </div>
+                  <p><%= vote.user.name %></p>
+              <% else %>
+                  <div class="initial-background" style="background-color: <%= avatar_bg_color(vote.name) %>">
+                  <span class="initial"><%= vote.name.first %></span>
+                  </div>
+                  <p><%= vote.name %></p>
+              <% end %>
+            </div>
           </li>
-          <ul>
-            <% answer.votes.each do |vote| %>
-              <li>
-                <div class="respondent-info" style="display: flex;">
-                  <% if vote.user_id %>
-                    <p class="initial-background" style="border-radius: 50%; width: 25px; height: 25px; background-color: <%= avatar_bg_color(vote.user.name) %>"><%= vote.user.initials %></p>
-                    <p><%= vote.user.name %></p>
-                  <% else %>
-                    <p class="initial-background" style="border-radius: 50%; width: 25px; height: 25px; background-color: <%= avatar_bg_color(vote.name) %>"><%= vote.name.first %></p>
-                    <p><%= vote.name %></p>
-                  <% end %>
-                </div>
-              </li>
-            <% end %>
-          </ul>
-      <% end %>
-    </ul>
-  </div>
+        <% end %>
+      </ul>
+    <% end %>
+  </ul>
+</div>
+
 
 <script>
   // const setBackgroundColor = () => {
