@@ -10,15 +10,45 @@
             <%= link_to answer_votes_path(answer.id), remote: true, method: :post, 'data-turbolinks-scroll': false do %>
               <div class="answer-vote-percentage">
                 <p><%= answer.title.upcase_first %> (<%= pluralize(answer.votes_count, "vote") %>)</p>
-                <ul>
-                  <%= answer.votes.each do |vote| %>
-                    <li><%= vote.name %></li>
-                  <% end %>
-                </ul>
                 <p><%= answer.votes_percentage.nan? ? "0" : answer.votes_percentage.to_i %> %</p>
               </div>
             <% end %>
           </li>
+          <ul>
+            <% answer.votes.each do |vote| %>
+              <li>
+                <div class="respondent-info" style="display: flex;">
+                  <% if vote.user_id %>
+                    <p class="initial-background" style="border-radius: 50%; width: 25px; height: 25px;"><%= User.find(vote.user_id).name[0] %></p>
+                    <p><%= User.find(vote.user_id).name %></p>
+                  <% else %>
+                    <p class="initial-background" style="border-radius: 50%; width: 25px; height: 25px;"><%= vote.name[0] %></p>
+                    <p><%= vote.name %></p>
+                  <% end %>
+                </div>
+              </li>
+            <% end %>
+          </ul>
       <% end %>
     </ul>
   </div>
+
+<script>
+  const setBackgroundColor = () => {
+    const avatars = document.querySelectorAll('.initial-background')
+    avatars.forEach(element => {
+        function random_bg_color() {
+          var x = Math.floor(Math.random() * 256);
+          var y = Math.floor(Math.random() * 256);
+          var z = Math.floor(Math.random() * 256);
+          var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+          console.log(bgColor);
+          element.style.backgroundColor = bgColor
+        }
+        random_bg_color();
+    });
+  };
+  window.onload = () => {
+    setBackgroundColor()
+  };
+</script>
