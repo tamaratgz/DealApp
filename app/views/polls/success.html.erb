@@ -19,8 +19,10 @@
       <button class="copy-link-btn"><i class="fas fa-share-alt"></i></button>
     </div>
 
+    <%= image_tag "https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=http://www.deal-app.me#{poll_path(@poll)}", class:"qrcode" %>
+
     <div style="padding: 50px; text-align: center">
-      <%= link_to "Go to dashboard", root_path, class:"btn-main" %>
+      <%= link_to "Go to dashboard", root_path, class:"btn-main", style:"font-size:20px" %>
     </div>
   </div>
 </div>
