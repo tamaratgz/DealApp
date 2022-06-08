@@ -28,14 +28,14 @@
             <div class="respondent-info">
                 <% if vote.user_id %>
                   <div class="initial-background" style="background-color: <%= avatar_bg_color(vote.user.name) %>">
-                  <span class="initial"><%= vote.user.initials %></span>
+                  <span class="initial"><%= vote.user.initials.upcase_first %></span>
                   </div>
-                  <p><%= vote.user.name %></p>
+                  <p><%= vote.user.name.upcase_first %></p>
               <% else %>
                   <div class="initial-background" style="background-color: <%= avatar_bg_color(vote.name) %>">
-                  <span class="initial"><%= vote.name.first %></span>
+                  <span class="initial"><%= vote.name.first.upcase_first %></span>
                   </div>
-                  <p><%= vote.name %></p>
+                  <p><%= vote.name.upcase_first %></p>
               <% end %>
             </div>
           </li>
