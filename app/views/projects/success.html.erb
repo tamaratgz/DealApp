@@ -22,7 +22,7 @@
     <%= image_tag "https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=http://www.deal-app.me#{project_path(@project)}", class:"qrcode" %>
 
     <div style="padding:25px; text-align: center">
-      <%= link_to "Go to project", project_path(@project), class:"btn-main", style:"font-size:20px" %>
+      <%= link_to "Go to dashboard", root_path, class:"btn-main", style:"font-size:20px" %>
     </div>
   </div>
 </div>
