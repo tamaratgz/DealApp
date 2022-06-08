@@ -15,10 +15,7 @@
   <% end %>
 </div>
 
-
-<div class="project-description-options">
-  <p><%= @project.description.upcase_first %></p>
-
+<div style="margin: 0px 0px 0px 25px; font-size: 17px;">
   <div class="icons-show-projects">
     <%= link_to success_project_path(@project) do %>
       <i class="fas fa-share-alt fasicont"></i>
@@ -32,6 +29,10 @@
       <i class="fas fa-pencil-alt fasicont"></i>
     <% end %>
   </div>
+</div>
+
+<div class="project-description-options">
+  <p><%= @project.description.upcase_first %></p>
 </div>
 
 <ul>

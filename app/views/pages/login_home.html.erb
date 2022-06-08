@@ -61,7 +61,7 @@
 
 <ul>
   <% current_user.polls.last(1).each do |poll| %>
-    <div class="container-poll" style="margin: 0% 7% 5% 7%">
+    <div class="container-poll">
       <li>
         <%= render "polls/poll", poll: poll %>
       </li>
@@ -80,7 +80,7 @@
 <h2 class="titlepoll">All my projects</h2>
 <ul>
   <% current_user.projects.each do |project| %>
-  <div class="container-projects" style="margin: 0% 7% 2% 7%">
+  <div class="container-projects" style="margin: 0% 5% 2% 5%">
       <li class="project-names">
           <div>
           <%= link_to project_path(project) do %>

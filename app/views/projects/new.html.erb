@@ -7,7 +7,10 @@
 <div class="poll-form">
   <%= simple_form_for @project do |f| %>
     <%= f.input :title, required: true, :label => "Title", placeholder: "Write a title" %>
-    <%= f.input :description, required: true, :label => "Description", placeholder: "Write a description"  %>
+    <%= f.input :description, :label => "Description (optional)", placeholder: "Write a description (optional)"  %>
+
+    <%
+=begin %>
     <ul>
       <% @polls.each do |poll| %>
           <li>
@@ -15,6 +18,9 @@
           </li>
       <% end %>
     </ul>
+    <%
+=end %>
+
   <%= f.submit "Create", class: "crproject" %>
 <% end %>
 </div>

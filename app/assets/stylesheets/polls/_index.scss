@@ -26,7 +26,7 @@ a {
 .fasicont {
   color: #000A63;
   font-size: 15px;
-  margin: 0px 10px;
+  margin: 0px 8px;
 }
 
 .title-with-avatar {
@@ -99,7 +99,12 @@ a {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding-right: 12px;
+  padding-right: 5px;
+
+  p {
+    font-size: 15px;
+    font-weight: bold;
+  }
 }
 
 

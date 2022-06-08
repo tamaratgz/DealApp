@@ -15,7 +15,7 @@
     </div>
 
 
-<h2 style="font-size: 20px; margin-left: 5%; margin-bottom: 5%;">Active polls</h2>
+<p style="font-size: 20px; margin-left: 5%; margin-bottom: 5%;"> <strong> ✅ Active polls </strong></p>
 <ul>
   <% @open_polls.each do |poll| %>
     <div class="container-poll">
@@ -26,7 +26,7 @@
   <% end %>
 </ul>
 
-<h2 style="font-size: 20px; margin-left: 5%; margin-bottom: 5%;">Inactive polls</h2>
+<p style="font-size: 20px; margin-left: 5%; margin-bottom: 5%;"> <strong> ❌ Inactive polls </strong></p>
 <ul>
   <% @closed_polls.each do |poll| %>
     <div class="container-poll">
