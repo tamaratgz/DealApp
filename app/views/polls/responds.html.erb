@@ -1,3 +1,15 @@
+<%# Back button %>
+<div style="margin: 30px 30px 0px 30px;">
+  <% if @poll.project.nil? %>
+    <% back = polls_path(anchor: @poll.id) %>
+  <% else %>
+    <% back = project_path(@poll.project) %>
+  <% end %>
+  
+  <%= link_to back, class: "back" do %>
+    <i class="fas fa-undo iconsnavbar"></i>
+  <% end %>
+</div>
 
 <h1 class="titlepoll">RESPONSES</h1>
 <h2 class="titlepoll" style="font-size: 25px"><%= @poll.title %></h2>

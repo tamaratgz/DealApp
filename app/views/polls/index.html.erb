@@ -18,7 +18,7 @@
 <p style="font-size: 20px; margin-left: 5%; margin-bottom: 5%;"> <strong> ✅ Active polls </strong></p>
 <ul>
   <% @open_polls.each do |poll| %>
-    <div class="container-poll">
+    <div class="container-poll" id="<%= poll.id %>">
       <li>
         <%= render "polls/poll", poll: poll %>
       </li>
