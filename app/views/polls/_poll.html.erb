@@ -26,8 +26,8 @@
     <%# HAS ENDED %>
     <% if (poll.deadline.to_datetime - DateTime.now).negative? %>
       <p>🕒 This poll has ended</p>
-    <%# ENDS SAME DAY %>
-    <% elsif (poll.deadline.day == DateTime.now.day) %>
+    <%# ENDS WITHIN 24 H %>
+    <% elsif ((poll.deadline.to_datetime - DateTime.now.to_datetime) * 24) < 26 %>
     <%# MORE THAN ONE HOUR %>
       <% if (((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 1) > 1 %>
         <p>🕒 <%= ((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2 %>h <%= ( (((poll.deadline.to_datetime - DateTime.now) * 1440).to_i - 120) - ((((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2) * 60)) %>m left</p>
@@ -37,7 +37,7 @@
       <% end %>
     <%# TOMORROW %>
     <% elsif (poll.deadline.day) == (DateTime.now.day + 1) %>
-      <p>🕒
+      <p>🕒 1d
       <%= ( (((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2) - ((poll.deadline.to_datetime - DateTime.now).to_i * 24) )%>h
       <%= ( ((((poll.deadline.to_datetime - DateTime.now) * 1440).to_i)) - ((((poll.deadline.to_datetime - DateTime.now) * 24).to_i - 2) * 60) - 120)%>m left</p>
     <%# FUTURE %>
