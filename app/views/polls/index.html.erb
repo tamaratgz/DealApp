@@ -1,11 +1,11 @@
-<div style="margin: 30px; margin-bottom:5px;">
+<div style="margin: 30px 30px 0px 30px;">
   <%= link_to root_path, class: "back" do %>
   <i class="fas fa-undo iconsnavbar"></i>
   <% end %>
 </div>
 
 <div class="title-with-avatar">
-  <h1 class="titlepoll">ALL POLLS</h1>
+  <h1 class="titlepoll" style="margin-top: 5%">ALL POLLS</h1>
   <%# user-avatar goes here %>
     <% if current_user.avatar.attached? %>
       <%= image_tag current_user.avatar, style: "width: 70px; border-radius: 50%; margin-right: 20px; height: 57px; object-fit: cover", class: "avatar-profilepoll" %>
