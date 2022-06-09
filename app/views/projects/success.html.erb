@@ -15,17 +15,17 @@
     </div>
 
     <div class="share-text-area">
-      <textarea class="js-copytextarea" readonly>http://www.deal-app.me<%= project_path(@project) %></textarea>
+      <textarea class="js-copytextarea" readonly>https://www.deal-app.me<%= project_path(@project) %></textarea>
       <button class="copy-link-btn"><i class="fas fa-share-alt"></i></button>
     </div>
 
 
     <div style="padding:25px; text-align: center">
-      <%= link_to "whatsapp://send?text=Make%20decisions%20real%20with%20Deal%20http://www.deal-app.me#{project_path(@project)}", style:"font-size:20px" do %>
+      <%= link_to "whatsapp://send?text=Make%20decisions%20real%20with%20Deal%20https://www.deal-app.me#{project_path(@project)}", style:"font-size:20px" do %>
         <i class="fab fa-whatsapp fasicont" style="font-size: 30px; margin-bottom: 5%"></i>
       <% end %>
 
-      <%= image_tag "https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=http://www.deal-app.me#{project_path(@project)}", class:"qrcode" %>
+      <%= image_tag "https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.deal-app.me#{project_path(@project)}", class:"qrcode" %>
 
       <%= link_to "Go to dashboard", root_path, class:"btn-main", style:"font-size:20px" %>
     </div>
