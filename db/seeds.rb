@@ -217,48 +217,48 @@ vote22.save
 # vote31.save
 # vote32 = Vote.new(name: "Michele", answer_id: answer20.id)
 # vote32.save
-vote33 = Vote.new(name: "Lorenzo", answer_id: answer21.id)
-vote33.save
-vote34 = Vote.new(name: "Diego", answer_id: answer21.id)
-vote34.save
-vote35 = Vote.new(name: "Oliver", answer_id: answer22.id)
-vote35.save
-vote36 = Vote.new(name: "Ana V.", answer_id: answer23.id)
-vote36.save
-vote37 = Vote.new(name: "George", answer_id: answer23.id)
-vote37.save
-vote38 = Vote.new(name: "Alba", answer_id: answer23.id)
-vote38.save
-vote39 = Vote.new(name: "Geraint", answer_id: answer23.id)
-vote39.save
-vote40 = Vote.new(name: "Carla", answer_id: answer23.id)
-vote40.save
-vote41 = Vote.new(name: "Rachel", answer_id: answer23.id)
-vote41.save
-vote42 = Vote.new(name: "Mayra", answer_id: answer23.id)
-vote42.save
-vote43 = Vote.new(name: "Manuela T.", answer_id: answer23.id)
-vote43.save
-vote44 = Vote.new(name: "Moritz", answer_id: answer23.id)
-vote44.save
-vote45 = Vote.new(name: "Gonzalo", answer_id: answer24.id)
-vote45.save
-vote46 = Vote.new(name: "Emi", answer_id: answer23.id)
-vote46.save
-vote47 = Vote.new(name: "Gaspar", answer_id: answer23.id)
-vote47.save
-vote48 = Vote.new(name: "Paula", answer_id: answer24.id)
-vote48.save
-vote49 = Vote.new(name: "Sonia", answer_id: answer24.id)
-vote49.save
-vote50 = Vote.new(name: "Jennifer", answer_id: answer24.id)
-vote50.save
-vote51 = Vote.new(name: "John", answer_id: answer24.id)
-vote51.save
-vote52 = Vote.new(name: "Oscar", answer_id: answer24.id)
-vote52.save
-vote53 = Vote.new(name: "Petra", answer_id: answer24.id)
-vote53.save
+# vote33 = Vote.new(name: "Lorenzo", answer_id: answer21.id)
+# vote33.save
+# vote34 = Vote.new(name: "Diego", answer_id: answer21.id)
+# vote34.save
+# vote35 = Vote.new(name: "Oliver", answer_id: answer22.id)
+# vote35.save
+# vote36 = Vote.new(name: "Ana V.", answer_id: answer23.id)
+# vote36.save
+# vote37 = Vote.new(name: "George", answer_id: answer23.id)
+# vote37.save
+# vote38 = Vote.new(name: "Alba", answer_id: answer23.id)
+# vote38.save
+# vote39 = Vote.new(name: "Geraint", answer_id: answer23.id)
+# vote39.save
+# vote40 = Vote.new(name: "Carla", answer_id: answer23.id)
+# vote40.save
+# vote41 = Vote.new(name: "Rachel", answer_id: answer23.id)
+# vote41.save
+# vote42 = Vote.new(name: "Mayra", answer_id: answer23.id)
+# vote42.save
+# vote43 = Vote.new(name: "Manuela T.", answer_id: answer23.id)
+# vote43.save
+# vote44 = Vote.new(name: "Moritz", answer_id: answer23.id)
+# vote44.save
+# vote45 = Vote.new(name: "Gonzalo", answer_id: answer24.id)
+# vote45.save
+# vote46 = Vote.new(name: "Emi", answer_id: answer23.id)
+# vote46.save
+# vote47 = Vote.new(name: "Gaspar", answer_id: answer23.id)
+# vote47.save
+# vote48 = Vote.new(name: "Paula", answer_id: answer24.id)
+# vote48.save
+# vote49 = Vote.new(name: "Sonia", answer_id: answer24.id)
+# vote49.save
+# vote50 = Vote.new(name: "Jennifer", answer_id: answer24.id)
+# vote50.save
+# vote51 = Vote.new(name: "John", answer_id: answer24.id)
+# vote51.save
+# vote52 = Vote.new(name: "Oscar", answer_id: answer24.id)
+# vote52.save
+# vote53 = Vote.new(name: "Petra", answer_id: answer24.id)
+# vote53.save
 
 # vote4 = Vote.new(name: "Voter name", answer_id: answer2.id)
 # vote4.save
