@@ -8,7 +8,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                  <h2 class="titlepoll titlesearch" id="exampleModalLabel">Enter your name</h2>
+                  <h2 class="titlepoll titlesearch" style="text-align:center" id="exampleModalLabel">Enter your name and don't forget to vote!</h2>
                 </div>
                 <%= simple_form_for :guest, url: guests_path, remote: true do |f| %>
                   <div class="modal-body">
@@ -30,5 +30,3 @@
     </li>
   </div>
 </ul>
-
-<h4 style="text-align: center; padding: 50px 0px 25px 0px; color:#860060">Thanks for voting!</h4>
