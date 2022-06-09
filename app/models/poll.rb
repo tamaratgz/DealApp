@@ -12,4 +12,12 @@ class Poll < ApplicationRecord
   def votes_count
     votes.count
   end
+
+  def user_voted?(user_or_name)
+    if user_or_name.class == User
+      !votes.where(user: user_or_name).empty?
+    elsif user_or_name.class == String
+      !votes.where(name: user_or_name).empty?
+    end
+  end
 end
