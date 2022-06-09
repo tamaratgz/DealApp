@@ -36,7 +36,7 @@
 </div>
 
 <ul>
-  <% @project.polls.each do |poll| %>
+  <% @project.polls.order(deadline: :asc).each do |poll| %>
 
     <div class="container-poll">
       <li>
