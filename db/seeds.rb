@@ -155,10 +155,18 @@ answer21 = Answer.new(title: "Hell, no", poll_id: poll9.id)
 answer21.save
 answer22 = Answer.new(title: "Who is Gonzalo?", poll_id: poll9.id)
 answer22.save
-answer23 = Answer.new(title: "Hell, no", poll_id: poll10.id)
+answer23 = Answer.new(title: "I like Carlota more", poll_id: poll9.id)
 answer23.save
-answer24 = Answer.new(title: "Who is Gonzalo?", poll_id: poll10.id)
+answer24 = Answer.new(title: "Luv him, babyyyy", poll_id: poll9.id)
 answer24.save
+answer25 = Answer.new(title: "Hell, no", poll_id: poll10.id)
+answer25.save
+answer26 = Answer.new(title: "Who is Gonzalo?", poll_id: poll10.id)
+answer26.save
+answer27 = Answer.new(title: "I like Carlota more", poll_id: poll10.id)
+answer27.save
+answer28 = Answer.new(title: "Luv him, babyyyy", poll_id: poll10.id)
+answer28.save
 
 # # second poll of no project: answers
 # answer14 = Answer.new(title: "Beer", poll_id: poll5.id)
